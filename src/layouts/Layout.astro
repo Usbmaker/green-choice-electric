@@ -26,5 +26,15 @@ const {
   </head>
   <body class={`font-sans antialiased text-ha-text-dark bg-white ${bodyClass}`}>
     <slot />
+    <script>
+      // Rewrite absolute internal links to include the GitHub Pages base path
+      const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+      if (base) {
+        document.querySelectorAll('a[href^="/"]').forEach(el => {
+          const href = el.getAttribute('href')!;
+          if (!href.startsWith(base)) el.setAttribute('href', base + href);
+        });
+      }
+    </script>
   </body>
 </html>

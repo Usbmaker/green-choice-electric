@@ -3,5 +3,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [tailwind()],
-  site: 'https://greenchoiceelectric.com',
+  site: 'https://usbmaker.github.io',
+  base: '/green-choice-electric',
 });
