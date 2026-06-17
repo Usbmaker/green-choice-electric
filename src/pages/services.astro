@@ -13,15 +13,16 @@ const services = [
     iconColor: '#7c3aed',
     iconBg: '#ede9fe',
     title: 'Lutron Smart Lighting',
-    intro: 'Transform your home with intelligent, effortless lighting. As a certified Lutron dealer, we design and install systems that go far beyond a smart bulb — think whole-home scenes, natural daylight tuning, and flawless integration with Alexa, Apple HomeKit, and Google Home.',
+    intro: 'Lutron is the gold standard in whole-home lighting control — and Green Choice is a certified Lutron dealer. From the flagship Homeworks QSX to the wireless RadioRA 3 and retrofit-friendly Caseta, we design, program, and calibrate every system to your life: perfect light at every moment, motorized shades that follow the sun, and one-touch scenes for any occasion.',
     features: [
-      'Lutron Caseta — easy retrofit for any home',
-      'RadioRA 3 — full architectural control',
-      'Whole-home scene programming',
-      'Motorized shades integration',
-      'Apple HomeKit, Alexa & Google Home compatible',
-      'Commercial-grade dimmers & keypads',
+      'Homeworks QSX — flagship centralized whole-home system',
+      'RadioRA 3 — wireless whole-home control, no processor required',
+      'Caseta — easy retrofit, no rewiring needed',
+      'Palladiom & Sunnata architectural keypads',
+      'Motorized shade & window treatment integration',
+      'Apple HomeKit, Alexa, Google Home & Control4 compatible',
     ],
+    video: 'SaLNLWP5wBA',
     flip: false,
   },
   {
@@ -42,6 +43,7 @@ const services = [
       'Battery-ready pre-wiring',
       'Monitoring app setup & training',
     ],
+    video: '',
     flip: true,
   },
   {
@@ -53,15 +55,16 @@ const services = [
     iconColor: '#0369a1',
     iconBg: '#dbeafe',
     title: 'Battery Storage',
-    intro: "Energy independence isn't just about generating power — it's about controlling it. We install whole-home battery systems that keep you running through outages, let you maximize solar self-consumption, and protect against rising TOU rates.",
+    intro: "The Savant Power System is the most sophisticated residential energy management solution available — and we're certified installers. Solar generation, battery storage, circuit-level load control, and EV charging all run through the Savant app, optimizing automatically so your home stays comfortable with or without the grid.",
     features: [
-      'Savant Power Storage PS20/PS50 — smart home integrated',
+      'Savant Power Storage PS20 (20kWh) & PS50 (50kWh) — scalable to 500kWh',
+      'Savant Power Modules — circuit-level monitoring & control',
       'Tesla Powerwall 3 — seamless solar integration',
       'Enphase IQ Battery — modular & expandable',
-      'Whole-home or critical load backup',
-      'Time-of-use optimization programming',
-      'EV + battery combined system design',
+      'Savant App — real-time energy dashboard & smart automation',
+      'EV charging integrated with whole-home energy management',
     ],
+    video: 'akLXlbq3OlU',
     flip: false,
   },
   {
@@ -82,6 +85,7 @@ const services = [
       'Whole-home surge protection',
       'Dedicated circuits for home office, theater, gym',
     ],
+    video: '',
     flip: true,
   },
 ];
@@ -156,27 +160,40 @@ const services = [
             </a>
           </div>
 
-          <!-- Visual placeholder -->
+          <!-- Visual / video -->
           <div style={s.flip ? 'order:1;' : ''}>
-            <div style={`
-              border-radius: 24px;
-              aspect-ratio: 4/3;
-              background: linear-gradient(135deg, #0c0c0c 0%, #1c1e21 100%);
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              box-shadow: 0 24px 48px rgba(0,0,0,0.12);
-              overflow: hidden;
-              position: relative;
-            `}>
-              <div style={`position:absolute;inset:0;opacity:0.15;background:radial-gradient(ellipse at 40% 30%, ${s.iconColor} 0%, transparent 70%);`}></div>
-              <div style="text-align:center;position:relative;z-index:1;">
-                <div style={`width:80px;height:80px;border-radius:64px;background:${s.iconBg};display:flex;align-items:center;justify-content:center;margin:0 auto 12px;`}>
-                  <iconify-icon icon={s.icon} width="40" style={`color:${s.iconColor};`}></iconify-icon>
-                </div>
-                <p style="color:rgba(255,255,255,0.4);font-size:0.8125rem;font-weight:600;">Photo coming soon</p>
+            {s.video ? (
+              <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,0.15);">
+                <iframe
+                  src={`https://www.youtube.com/embed/${s.video}?rel=0&modestbranding=1`}
+                  title={`${s.title} — installation overview`}
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                  style="width:100%;aspect-ratio:16/9;display:block;border:none;"
+                ></iframe>
               </div>
-            </div>
+            ) : (
+              <div style={`
+                border-radius: 24px;
+                aspect-ratio: 4/3;
+                background: linear-gradient(135deg, #0c0c0c 0%, #1c1e21 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+                overflow: hidden;
+                position: relative;
+              `}>
+                <div style={`position:absolute;inset:0;opacity:0.15;background:radial-gradient(ellipse at 40% 30%, ${s.iconColor} 0%, transparent 70%);`}></div>
+                <div style="text-align:center;position:relative;z-index:1;">
+                  <div style={`width:80px;height:80px;border-radius:64px;background:${s.iconBg};display:flex;align-items:center;justify-content:center;margin:0 auto 12px;`}>
+                    <iconify-icon icon={s.icon} width="40" style={`color:${s.iconColor};`}></iconify-icon>
+                  </div>
+                  <p style="color:rgba(255,255,255,0.4);font-size:0.8125rem;font-weight:600;">Photo coming soon</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
