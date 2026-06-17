@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy">
+  <Header />
+
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 56px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 style="font-size:2.5rem;font-weight:800;letter-spacing:-1px;color:white;margin-bottom:8px;">Privacy Policy</h1>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;">Last updated: June 2025</p>
+    </div>
+  </div>
+
+  <section style="background:#f0f0f3;padding:72px 0;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div style="background:white;border-radius:24px;padding:40px 44px;border:1px solid #e8edf0;" class="prose-block">
+
+        <h2>Information We Collect</h2>
+        <p>When you submit the estimate request form on our website, we collect the name, phone number, email address, property address, and project description you provide. We use this information solely to respond to your inquiry and schedule your estimate.</p>
+
+        <h2>How We Use Your Information</h2>
+        <p>We use the information you submit to:</p>
+        <ul>
+          <li>Respond to your estimate or service request</li>
+          <li>Schedule consultations and follow up on open projects</li>
+          <li>Send occasional updates about your project status</li>
+        </ul>
+        <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+        <h2>Cookies &amp; Analytics</h2>
+        <p>Our website may use basic analytics tools (such as Google Analytics) to understand how visitors use the site. These tools may collect anonymized data about pages visited and time spent. No personally identifiable information is collected through analytics.</p>
+
+        <h2>Data Retention</h2>
+        <p>We retain contact form submissions for as long as necessary to service your request. You may request deletion of your information at any time by emailing us.</p>
+
+        <h2>Contact</h2>
+        <p>If you have questions about this privacy policy, please contact us:</p>
+        <ul>
+          <li>Email: <a href="mailto:info@greenchoiceelectric.com">info@greenchoiceelectric.com</a></li>
+          <li>Phone: <a href="tel:+18588697440">(858) 869-7440</a></li>
+          <li>Address: La Jolla, CA 92037</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose-block h2 { font-size:1.25rem;font-weight:800;color:#0c0c0c;margin:28px 0 10px;letter-spacing:-0.2px; }
+  .prose-block h2:first-child { margin-top:0; }
+  .prose-block p  { font-size:0.9375rem;color:#4f606e;line-height:1.8;margin:0 0 14px; }
+  .prose-block ul { padding-left:20px;margin:0 0 14px;display:flex;flex-direction:column;gap:6px; }
+  .prose-block li { font-size:0.9375rem;color:#4f606e;line-height:1.7; }
+  .prose-block a  { color:#16b84a;font-weight:700;text-decoration:none; }
+  .prose-block a:hover { text-decoration:underline; }
+  @media (max-width: 768px) {
+    .page-header { padding: 88px 0 40px !important; }
+    .prose-block { padding: 24px !important; }
+  }
+  @media (max-width: 480px) {
+    .page-header { padding: 80px 0 32px !important; }
+    .prose-block { padding: 20px 16px !important; }
+  }
+</style>

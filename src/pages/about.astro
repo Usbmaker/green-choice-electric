@@ -1,0 +1,151 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const credentials = [
+  { icon: 'mdi:certificate', label: 'California C-10 Electrical License' },
+  { icon: 'mdi:lightbulb-auto', label: 'Lutron Certified Installer' },
+  { icon: 'mdi:battery-charging-high', label: 'Tesla Powerwall Certified Installer' },
+  { icon: 'mdi:solar-panel', label: 'Savant Certified Installer' },
+  { icon: 'mdi:solar-power-variant', label: 'NABCEP PV Associate' },
+  { icon: 'mdi:hard-hat', label: 'OSHA 10 Certified' },
+];
+
+const values = [
+  { icon: 'mdi:shield-check', color: '#16b84a', bg: '#dcfce7', title: 'Integrity First', body: "We quote honestly, communicate clearly, and never upsell work that isn't needed. You'll know exactly what you're getting before we start." },
+  { icon: 'mdi:star', color: '#b45309', bg: '#fef3c7', title: 'Premium Craftsmanship', body: 'Commercial-grade materials, clean installs, and meticulous attention to detail. We treat every home as if it were our own.' },
+  { icon: 'mdi:recycle', color: '#0369a1', bg: '#dbeafe', title: 'Clean Energy Mission', body: "Every solar array and battery system we install moves a family closer to energy independence. That's not just business — it's why we started Green Choice." },
+];
+---
+
+<Layout title="About Seth — Green Choice Electric">
+  <Header />
+
+  <!-- Page header -->
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 72px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.75);margin-bottom:12px;">Our Story</p>
+      <h1 style="
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 16px;
+        background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">About Green Choice</h1>
+      <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+        A La Jolla electrician who believes great work and clean energy belong in the same sentence.
+      </p>
+    </div>
+  </div>
+
+  <!-- Story section -->
+  <section style="background:#fff;padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;" class="about-grid">
+
+        <!-- Seth's photo -->
+        <div>
+          <img
+            src="/seth.jpg"
+            alt="Seth — Green Choice Electric"
+            style="width:100%;border-radius:24px;box-shadow:0 24px 48px rgba(0,0,0,0.12);object-fit:cover;object-position:top;aspect-ratio:3/4;"
+          />
+        </div>
+
+        <!-- Story copy -->
+        <div>
+          <h2 style="font-size:2rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.15;margin-bottom:20px;">Built on a simple idea</h2>
+          <div style="display:flex;flex-direction:column;gap:16px;font-size:1rem;color:#4f606e;line-height:1.8;margin-bottom:36px;">
+            <p>Green Choice started with a conviction: La Jolla homeowners deserve an electrician who combines technical excellence with a genuine commitment to clean energy — without the sales pressure that comes from a large franchise.</p>
+            <p>As a licensed C-10 electrician, I've worked on everything from single-outlet repairs in historic Bird Rock cottages to full smart-home and solar systems in La Jolla Farms. Every job gets the same level of care — because your home deserves it.</p>
+            <p>The name isn't marketing. I believe every project is a chance to move a home toward energy independence, lower its footprint, and make it smarter. Lutron lighting that adapts to natural daylight. Solar paired with Savant Power Storage or a Tesla Powerwall that keeps you running through an outage. An EV charger that works seamlessly with your schedule.</p>
+            <p>If that sounds like the kind of contractor you've been looking for — let's talk.</p>
+          </div>
+
+          <!-- Credentials -->
+          <div style="border-top:1px solid #e8edf0;padding-top:28px;">
+            <h3 style="font-size:0.875rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#8792a2;margin-bottom:16px;">Licenses &amp; Certifications</h3>
+            <div class="credentials-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+              {credentials.map(c => (
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <iconify-icon icon={c.icon} width="16" style="color:#16b84a;flex-shrink:0;"></iconify-icon>
+                  <span style="font-size:0.875rem;color:#4f606e;">{c.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section style="background:#f0f0f3;padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="text-align:center;margin-bottom:48px;">
+        <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#16b84a;margin-bottom:12px;">What We Stand For</p>
+        <h2 style="font-size:2rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;">Our Values</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="values-grid">
+        {values.map(v => (
+          <div style="background:white;border-radius:24px;padding:28px;border:1px solid #e8edf0;">
+            <div style={`width:56px;height:56px;border-radius:64px;background:${v.bg};display:flex;align-items:center;justify-content:center;margin-bottom:16px;`}>
+              <iconify-icon icon={v.icon} width="28" style={`color:${v.color};`}></iconify-icon>
+            </div>
+            <h3 style="font-size:1.0625rem;font-weight:700;color:#0c0c0c;margin-bottom:8px;">{v.title}</h3>
+            <p style="font-size:0.9375rem;color:#4f606e;line-height:1.65;margin:0;">{v.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 72px 0;
+    text-align: center;
+    color: white;
+  ">
+    <div class="max-w-xl mx-auto px-4">
+      <h2 style="font-size:1.75rem;font-weight:800;letter-spacing:-0.5px;color:white;margin-bottom:12px;">Ready to work together?</h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;margin-bottom:28px;">Free estimates, fast responses, and work you'll be proud of.</p>
+      <a href="/contact" style="
+        display:inline-flex;align-items:center;gap:8px;
+        background-color:#0d8c32;color:white;
+        font-weight:700;font-size:1rem;text-transform:uppercase;
+        padding:10px 24px;border-radius:32px;text-decoration:none;
+      ">
+        Get in touch <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    .about-grid  { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .values-grid { grid-template-columns: 1fr 1fr !important; }
+    .page-header { padding: 88px 0 40px !important; }
+  }
+  @media (max-width: 640px) {
+    .values-grid { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .page-header       { padding: 80px 0 32px !important; }
+    .credentials-grid  { grid-template-columns: 1fr !important; }
+  }
+</style>

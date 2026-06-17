@@ -1,0 +1,185 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const categories = ['All', 'Lutron', 'Solar', 'Battery', 'Residential'];
+
+const projects = [
+  { id:1, category:'Lutron',      title:'Whole-Home RadioRA 3',       location:'La Jolla Farms',   desc:'42-zone architectural lighting with motorized shades throughout.',      aspect:'tall',   iconColor:'#7c3aed', iconBg:'#ede9fe', icon:'mdi:lightbulb-auto',       gradient:'linear-gradient(135deg,#1e1040 0%,#2d1b6e 100%)' },
+  { id:2, category:'Solar',       title:'14.4 kW Rooftop Solar',      location:'Bird Rock',         desc:'SunPower Maxeon panels with Enphase microinverters.',                  aspect:'wide',   iconColor:'#b45309', iconBg:'#fef3c7', icon:'mdi:solar-panel',           gradient:'linear-gradient(135deg,#451a03 0%,#92400e 100%)' },
+  { id:3, category:'Battery',     title:'Tesla Powerwall 3',          location:'Del Mar',           desc:'Whole-home backup paired with existing 10 kW solar system.',          aspect:'square', iconColor:'#0369a1', iconBg:'#dbeafe', icon:'mdi:battery-charging-high', gradient:'linear-gradient(135deg,#082f49 0%,#0369a1 100%)' },
+  { id:4, category:'Residential', title:'200A Panel Upgrade',         location:'Pacific Beach',     desc:'Full service upgrade with whole-home surge protection.',               aspect:'square', iconColor:'#16b84a', iconBg:'#dcfce7', icon:'mdi:lightning-bolt',        gradient:'linear-gradient(135deg,#052e16 0%,#166534 100%)' },
+  { id:5, category:'Lutron',      title:'Caseta Retrofit',            location:'Solana Beach',      desc:'Smart dimmer retrofit across 3,200 sq ft without rewiring.',           aspect:'wide',   iconColor:'#7c3aed', iconBg:'#ede9fe', icon:'mdi:lightbulb-auto',       gradient:'linear-gradient(135deg,#1e1040 0%,#4c1d95 100%)' },
+  { id:6, category:'Solar',       title:'8.4 kW + Battery Bundle',    location:'Carmel Valley',     desc:'REC Alpha panels with Savant Power Storage PS50 for whole-home energy independence.',       aspect:'tall',   iconColor:'#b45309', iconBg:'#fef3c7', icon:'mdi:solar-power-variant',  gradient:'linear-gradient(135deg,#451a03 0%,#b45309 100%)' },
+  { id:7, category:'Residential', title:'EV Charger Installation',    location:'La Jolla',          desc:'Level 2 ChargePoint Home Flex on a dedicated 50A circuit.',            aspect:'square', iconColor:'#0fb8a0', iconBg:'#ccfbf1', icon:'mdi:ev-plug-type2',        gradient:'linear-gradient(135deg,#042f2e 0%,#0d9488 100%)' },
+  { id:8, category:'Battery',     title:'Savant Power Storage PS20 ×2', location:'Rancho Santa Fe',   desc:'Two-unit Savant PS20 install for 40 kWh of whole-home backup, integrated with existing solar.',       aspect:'wide',   iconColor:'#0369a1', iconBg:'#dbeafe', icon:'mdi:battery-charging',     gradient:'linear-gradient(135deg,#082f49 0%,#1d4ed8 100%)' },
+  { id:9, category:'Residential', title:'Kitchen Electrical Remodel', location:'Mission Hills',     desc:'Dedicated circuits, under-cabinet lighting, and GFCI upgrade.',       aspect:'square', iconColor:'#16b84a', iconBg:'#dcfce7', icon:'mdi:lightning-bolt',        gradient:'linear-gradient(135deg,#052e16 0%,#15803d 100%)' },
+];
+
+const categoryColors: Record<string, string> = {
+  Lutron:      'background:#ede9fe;color:#7c3aed;',
+  Solar:       'background:#fef3c7;color:#b45309;',
+  Battery:     'background:#dbeafe;color:#0369a1;',
+  Residential: 'background:#dcfce7;color:#15803d;',
+};
+---
+
+<Layout title="Gallery" description="Browse Green Choice Electric project photos — Lutron smart lighting, solar installations, battery storage, and residential electrical in La Jolla.">
+  <Header />
+
+  <!-- Page header -->
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 72px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.75);margin-bottom:12px;">Our Work</p>
+      <h1 style="
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 16px;
+        background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">Project Gallery</h1>
+      <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+        Real installs, real homes. Every project is permitted, inspected, and done right.
+      </p>
+    </div>
+  </div>
+
+  <!-- Filter bar -->
+  <div style="background:white;border-bottom:1px solid #e8edf0;position:sticky;top:72px;z-index:30;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:flex;gap:8px;padding:12px 0;overflow-x:auto;" id="filter-bar">
+        {categories.map((cat, i) => (
+          <button
+            data-filter={cat}
+            style={`
+              flex-shrink:0;padding:6px 16px;border-radius:32px;font-size:0.875rem;font-weight:700;
+              border:2px solid;cursor:pointer;transition:all 0.15s;
+              ${i === 0
+                ? 'background:#0d8c32;color:white;border-color:#0d8c32;'
+                : 'background:white;color:#4f606e;border-color:#e8edf0;'}
+            `}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Masonry grid -->
+  <section style="background:#f2f4f9;padding:48px 0 72px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="columns:1;gap:20px;" class="gallery-columns" id="gallery-grid">
+        {projects.map(p => (
+          <div
+            data-category={p.category}
+            class="gallery-item"
+            style="break-inside:avoid;margin-bottom:20px;border-radius:24px;overflow:hidden;background:white;border:1px solid #e8edf0;transition:box-shadow 0.2s,transform 0.2s;"
+          >
+            <!-- Image area -->
+            <div
+              style={`
+                width:100%;
+                ${p.aspect === 'tall' ? 'aspect-ratio:3/4;' : p.aspect === 'wide' ? 'aspect-ratio:16/9;' : 'aspect-ratio:1/1;'}
+                background:${p.gradient};
+                display:flex;align-items:center;justify-content:center;
+                position:relative;overflow:hidden;
+              `}
+            >
+              <div style={`position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:32px;font-size:11px;font-weight:700;${categoryColors[p.category]}`}>
+                {p.category}
+              </div>
+              <div style={`width:72px;height:72px;border-radius:64px;background:${p.iconBg};display:flex;align-items:center;justify-content:center;`}>
+                <iconify-icon icon={p.icon} width="36" style={`color:${p.iconColor};`}></iconify-icon>
+              </div>
+            </div>
+            <!-- Caption -->
+            <div style="padding:16px 18px 18px;">
+              <h3 style="font-size:0.9375rem;font-weight:700;color:#0c0c0c;margin:0 0 4px;">{p.title}</h3>
+              <p style={`font-size:0.8125rem;font-weight:700;margin:0 0 6px;${p.iconColor?`color:${p.iconColor};`:''}`}>{p.location}</p>
+              <p style="font-size:0.8125rem;color:#8792a2;line-height:1.5;margin:0;">{p.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div id="empty-state" style="display:none;text-align:center;padding:80px 0;">
+        <iconify-icon icon="mdi:image-off" width="48" style="color:#d1d5db;"></iconify-icon>
+        <p style="color:#8792a2;margin-top:12px;">No projects in this category yet — check back soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+  ">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 style="font-size:2rem;font-weight:800;letter-spacing:-0.5px;color:white;margin-bottom:12px;">Your project could be next</h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;line-height:1.75;margin-bottom:28px;">
+        Get a free estimate and see what Green Choice can do for your home.
+      </p>
+      <a href="/contact" style="
+        display:inline-flex;align-items:center;gap:8px;
+        background-color:#0d8c32;color:white;
+        font-weight:700;font-size:1rem;text-transform:uppercase;
+        padding:10px 24px;border-radius:32px;text-decoration:none;
+      ">
+        Request a free estimate
+        <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @media (min-width: 640px)  { .gallery-columns { columns: 2 !important; } }
+  @media (min-width: 1024px) { .gallery-columns { columns: 3 !important; } }
+  .gallery-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  @media (max-width: 768px) { .page-header { padding: 88px 0 40px !important; } }
+  @media (max-width: 480px) { .page-header { padding: 80px 0 32px !important; } }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+  const items   = document.querySelectorAll<HTMLElement>('.gallery-item');
+  const empty   = document.getElementById('empty-state');
+  const grid    = document.getElementById('gallery-grid');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+
+      buttons.forEach(b => {
+        b.style.cssText = b.style.cssText.replace(/background:[^;]+;color:[^;]+;border-color:[^;]+;/, 'background:white;color:#4f606e;border-color:#e8edf0;');
+      });
+      btn.style.cssText = btn.style.cssText.replace('background:white;color:#4f606e;border-color:#e8edf0;', 'background:#0d8c32;color:white;border-color:#0d8c32;');
+
+      let visible = 0;
+      items.forEach(item => {
+        const show = filter === 'All' || item.dataset.category === filter;
+        (item as HTMLElement).style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
+      if (grid)  grid.style.display  = visible === 0 ? 'none'  : '';
+    });
+  });
+</script>

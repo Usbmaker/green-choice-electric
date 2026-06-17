@@ -1,0 +1,669 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Premium Electrical — La Jolla & Coastal San Diego">
+  <Header />
+
+  <!-- =============================================
+       HERO  (HA pattern: vivid gradient, split 3/5 + 2/5, huge headline)
+       ============================================= -->
+  <section
+    data-hero
+    class="relative overflow-hidden hero-section"
+    style="
+      background: #16b84a;
+      background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+      margin-top: -72px;
+      padding-top: 72px;
+      min-height: 840px;
+      height: 100vh;
+      max-height: 1080px;
+      display: flex;
+      align-items: center;
+      color: white;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    "
+  >
+    <!-- Subtle texture overlay -->
+    <div class="absolute inset-0 opacity-[0.04]"
+      style="background-image: radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 32px 32px;"></div>
+
+    <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+
+        <!-- Left: 3/5 -->
+        <div class="lg:w-3/5">
+          <!-- Headline — HA exact style -->
+          <h1 style="
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2.56px;
+            font-style: normal;
+            background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0;
+          ">
+            Electrify<br />
+            <span style="
+              display: block;
+              line-height: 1.15;
+              margin-top: -0.5rem;
+            ">your home.</span>
+          </h1>
+
+          <!-- Lead — HA exact: 1.5rem, 2.25rem line-height -->
+          <p class="hero-lead" style="font-size:1.5rem;line-height:2.25rem;margin-bottom:24px;margin-top:24px;color:rgba(255,255,255,0.92);">
+            La Jolla's premier electrical contractor — Lutron smart lighting, solar, battery storage, and residential electrical. Licensed, local, and built around clean energy.
+          </p>
+
+          <!-- Buttons — HA exact pattern -->
+          <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px;">
+            <a
+              href="/contact"
+              class="hero-cta"
+              style="
+                font-family: 'Figtree','Helvetica Neue',Arial,sans-serif;
+                background-color: #0d8c32;
+                color: white;
+                text-transform: uppercase;
+                font-size: 1.25rem;
+                font-weight: 700;
+                padding: 10px 20px 10px 28px;
+                border-radius: 32px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                transition: opacity 0.15s;
+              "
+            >
+              Get a free estimate
+              <iconify-icon icon="mdi:arrow-right" width="22"></iconify-icon>
+            </a>
+            <div style="display:flex;flex-direction:column;gap:2px;">
+              <a href="tel:+18588697440" style="color:rgba(255,255,255,0.9);font-size:1rem;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:32px;transition:background 0.15s;">(858) 869-7440</a>
+              <a href="/services" style="color:rgba(255,255,255,0.9);font-size:1rem;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:32px;transition:background 0.15s;">Browse our services</a>
+            </div>
+          </div>
+
+          <!-- Social proof — HA pattern: trust badge -->
+          <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-top:16px;">
+            <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.3);background:rgba(255,255,255,0.12);backdrop-filter:blur(8px);">
+              <iconify-icon icon="mdi:shield-check" width="24" style="color:rgba(255,255,255,0.9);"></iconify-icon>
+              <p style="color:white;font-size:0.95rem;font-weight:400;line-height:1.3;margin:0;">
+                <strong style="font-weight:700;">CA C-10 Licensed</strong><br />
+                <span style="opacity:0.8;font-size:0.8rem;">Fully insured &amp; bonded</span>
+              </p>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;opacity:0.85;">
+              <div style="display:flex;gap:2px;">
+                {Array.from({length:5}).map(() => (
+                  <iconify-icon icon="mdi:star" width="18" style="color:#FFD700;"></iconify-icon>
+                ))}
+              </div>
+              <p style="color:white;font-size:0.95rem;font-weight:600;margin:0;">5.0 on Google</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 2/5 — Smart home control mockup (HA-style demo frame) -->
+        <div class="hidden lg:block lg:w-2/5">
+          <div style="
+            border-radius: 28px;
+            border: 10px solid rgba(255,255,255,0.3);
+            box-shadow: 24px 64px 64px rgba(0, 60, 20, 0.4);
+            overflow: hidden;
+            background: white;
+            aspect-ratio: 9/16;
+            max-height: 580px;
+            position: relative;
+          ">
+            <!-- Simulated smart home dashboard -->
+            <div style="background:#f2f4f9;height:100%;padding:16px;font-family:Figtree,sans-serif;overflow:hidden;">
+              <!-- Status bar -->
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:11px;color:#4f606e;">
+                <span style="font-weight:700;">Green Choice</span>
+                <div style="display:flex;gap:4px;align-items:center;">
+                  <iconify-icon icon="mdi:wifi" width="12"></iconify-icon>
+                  <iconify-icon icon="mdi:battery" width="12"></iconify-icon>
+                </div>
+              </div>
+
+              <!-- Welcome card -->
+              <div style="background:linear-gradient(135deg,hsl(145,80%,38%),hsl(175,85%,38%));border-radius:16px;padding:14px;margin-bottom:10px;color:white;">
+                <p style="font-size:11px;opacity:0.8;margin:0 0 4px 0;">Good evening</p>
+                <p style="font-size:16px;font-weight:800;margin:0;letter-spacing:-0.5px;">Your home is<br/>100% solar powered</p>
+                <div style="display:flex;gap:8px;margin-top:10px;">
+                  <div style="background:rgba(255,255,255,0.2);border-radius:8px;padding:6px 8px;font-size:10px;font-weight:700;">8.4 kW solar</div>
+                  <div style="background:rgba(255,255,255,0.2);border-radius:8px;padding:6px 8px;font-size:10px;font-weight:700;">94% battery</div>
+                </div>
+              </div>
+
+              <!-- Lutron lighting -->
+              <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4f606e;margin:0 0 6px 0;">Lighting</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px;">
+                {[
+                  {room:'Living Room',level:'65%',on:true},
+                  {room:'Kitchen',level:'100%',on:true},
+                  {room:'Master',level:'30%',on:true},
+                  {room:'Office',level:'Off',on:false},
+                ].map(r => (
+                  <div style={`background:white;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:4px;opacity:${r.on?'1':'0.5'}`}>
+                    <div style="display:flex;justify-content:space-between;align-items:center;">
+                      <iconify-icon icon="mdi:lightbulb" width="14" style={`color:${r.on?'#16b84a':'#ccc'}`}></iconify-icon>
+                      <div style={`width:24px;height:14px;border-radius:7px;background:${r.on?'#16b84a':'#e0e0e0'};display:flex;align-items:center;${r.on?'justify-content:flex-end;':'justify-content:flex-start;'}padding:2px;`}>
+                        <div style="width:10px;height:10px;border-radius:5px;background:white;"></div>
+                      </div>
+                    </div>
+                    <p style="font-size:9px;font-weight:700;color:#0c0c0c;margin:0;">{r.room}</p>
+                    <p style="font-size:9px;color:#8792a2;margin:0;">{r.level}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- EV Charger -->
+              <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#4f606e;margin:0 0 6px 0;">EV Charger</p>
+              <div style="background:white;border-radius:12px;padding:10px;display:flex;align-items:center;gap:10px;">
+                <div style="width:32px;height:32px;border-radius:8px;background:#e8f8ef;display:flex;align-items:center;justify-content:center;">
+                  <iconify-icon icon="mdi:ev-plug-type2" width="18" style="color:#16b84a;"></iconify-icon>
+                </div>
+                <div style="flex:1;">
+                  <p style="font-size:10px;font-weight:700;margin:0;color:#0c0c0c;">Tesla Model 3</p>
+                  <div style="width:100%;height:4px;background:#e0e0e0;border-radius:2px;margin-top:4px;">
+                    <div style="width:72%;height:100%;background:linear-gradient(90deg,#16b84a,#0fb8a0);border-radius:2px;"></div>
+                  </div>
+                  <p style="font-size:9px;color:#8792a2;margin:2px 0 0 0;">72% · est. full in 1h 20m</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FEATURE CARDS  (HA: white bg, 3-col, icon in rounded container)
+       ============================================= -->
+  <section style="background:#fff;padding:64px 0 80px;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="text-align:center;margin-bottom:48px;">
+        <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#16b84a;margin-bottom:12px;">What We Do</p>
+        <h2 class="section-h2" style="font-size:2.5rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.1;">Premium Electrical Services</h2>
+        <p style="font-size:1.125rem;color:#4f606e;max-width:520px;margin:12px auto 0;line-height:1.7;">From smart home lighting to whole-home solar — everything electrical, done with precision and care.</p>
+      </div>
+
+      <!-- 3-col grid — HA exact: border-radius:24px, padding:24px, white bg -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="feature-grid">
+        {[
+          {
+            icon: 'mdi:lightbulb-auto',
+            color: '#7c3aed',
+            bg: '#ede9fe',
+            title: 'Lutron Smart Lighting',
+            body: 'Certified Lutron dealer. Whole-home scenes, motorized shades, and integration with Apple HomeKit, Alexa, and Google Home.',
+            href: '/services#lutron',
+          },
+          {
+            icon: 'mdi:solar-panel',
+            color: '#b45309',
+            bg: '#fef3c7',
+            title: 'Solar Installation',
+            body: "Custom-designed systems, tier-1 panels, full permitting. San Diego's sunshine working for your home — and your bill.",
+            href: '/services#solar',
+          },
+          {
+            icon: 'mdi:battery-charging-high',
+            color: '#0369a1',
+            bg: '#dbeafe',
+            title: 'Battery Storage',
+            body: 'Savant Power Storage, Tesla Powerwall 3, and Enphase IQ. Whole-home backup and energy independence when the grid goes down.',
+            href: '/services#battery',
+          },
+          {
+            icon: 'mdi:lightning-bolt',
+            color: '#16b84a',
+            bg: '#dcfce7',
+            title: 'Residential Electrical',
+            body: 'Panel upgrades, EV chargers, recessed lighting, outlets, and everything in between. Fully permitted, inspected, done right.',
+            href: '/services#residential',
+          },
+          {
+            icon: 'mdi:ev-plug-type2',
+            color: '#0fb8a0',
+            bg: '#ccfbf1',
+            title: 'EV Charger Installation',
+            body: 'Level 2 ChargePoint, Tesla Wall Connector, and more on a dedicated circuit — so you wake up to a full charge every morning.',
+            href: '/services#residential',
+          },
+          {
+            icon: 'mdi:home-automation',
+            color: '#dc2626',
+            bg: '#fee2e2',
+            title: 'Smart Home Integration',
+            body: 'Lutron + solar + battery + EV as one cohesive system — controlled from a single app, optimized automatically.',
+            href: '/services',
+          },
+        ].map(card => (
+          <a href={card.href} class="feature-card" style="
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            display: block;
+            text-decoration: none;
+            border: 1px solid #e8edf0;
+            transition: box-shadow 0.2s, transform 0.2s;
+            vertical-align: top;
+          ">
+            <!-- HA icon treatment: large icon in rounded-square container -->
+            <div style={`
+              font-size: 2.5rem;
+              border-radius: 64px;
+              background: ${card.bg};
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              padding: 16px;
+              margin-bottom: 12px;
+              color: ${card.color};
+            `}>
+              <iconify-icon icon={card.icon} width="40" style={`color:${card.color};`}></iconify-icon>
+            </div>
+            <div style={`font-family:Figtree,sans-serif;font-size:1.3125rem;line-height:1.625rem;color:${card.color};font-weight:600;padding-bottom:8px;`}>
+              {card.title}
+            </div>
+            <p style="font-size:0.9375rem;line-height:1.6;color:#4f606e;margin:0;">{card.body}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       LUTRON FEATURE SECTION  (HA alternating: gray bg, image left + copy right)
+       ============================================= -->
+  <section style="background:#f0f0f3;padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="split-grid">
+        <!-- Visual: Lutron keypad card -->
+        <div>
+          <div style="
+            background: linear-gradient(160deg, #1e1040 0%, #2d1b6e 100%);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+          ">
+            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-bottom:16px;">Lutron RadioRA 3 · Living Room</p>
+            <!-- Scene buttons -->
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:20px;">
+              {['Morning','Entertain','Evening','Away'].map((s,i) => (
+                <div style={`
+                  border-radius: 12px;
+                  padding: 12px 14px;
+                  font-size: 14px;
+                  font-weight: 700;
+                  border: 1px solid rgba(255,255,255,0.12);
+                  ${i===2
+                    ? 'background:rgba(124,58,237,0.4);color:#d4b8ff;border-color:rgba(124,58,237,0.5);'
+                    : 'background:rgba(255,255,255,0.06);color:rgba(255,255,255,0.6);'}
+                `}>{s}</div>
+              ))}
+            </div>
+            <!-- Dimmer -->
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:6px;">
+                <span>Brightness</span><span style="color:#d4b8ff;font-weight:700;">65%</span>
+              </div>
+              <div style="height:6px;background:rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;">
+                <div style="height:100%;width:65%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:3px;"></div>
+              </div>
+            </div>
+            <!-- Shades -->
+            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:10px 12px;display:flex;align-items:center;gap:10px;">
+              <iconify-icon icon="mdi:blinds" width="18" style="color:rgba(255,255,255,0.6);"></iconify-icon>
+              <div style="flex:1;">
+                <p style="font-size:12px;font-weight:700;color:white;margin:0;">Motorized Shades · 40% open</p>
+              </div>
+              <div style="width:32px;height:18px;border-radius:9px;background:rgba(124,58,237,0.5);display:flex;align-items:center;justify-content:flex-end;padding:3px;">
+                <div style="width:12px;height:12px;border-radius:6px;background:white;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy -->
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:32px;background:#ede9fe;color:#7c3aed;font-size:12px;font-weight:700;margin-bottom:20px;">
+            <iconify-icon icon="mdi:certificate" width="14"></iconify-icon>
+            Certified Lutron Dealer
+          </div>
+          <h2 class="section-h2" style="font-size:2.5rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.1;margin-bottom:20px;">
+            Lighting that responds to your life
+          </h2>
+          <p style="font-size:1.125rem;color:#4f606e;line-height:1.75;margin-bottom:28px;">
+            Lutron RadioRA 3 and Caseta systems turn any La Jolla home into a smart home — effortless scenes, natural daylight response, and control from any device or voice assistant. No rewiring required for most installs.
+          </p>
+          <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+            {['Whole-home scene programming','Motorized shade integration','Apple HomeKit, Alexa & Google Home','Commercial-grade dimmers & keypads','Caseta retrofit — no rewiring needed'].map(f => (
+              <li style="display:flex;align-items:center;gap:10px;font-size:0.9375rem;color:#4f606e;">
+                <iconify-icon icon="mdi:check-circle" width="18" style="color:#16b84a;flex-shrink:0;"></iconify-icon>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/services#lutron" style="
+            display:inline-flex;align-items:center;gap:6px;
+            background-color:#0d8c32;color:white;
+            font-weight:700;font-size:1rem;
+            padding:10px 20px;border-radius:32px;text-decoration:none;
+            text-transform:uppercase;letter-spacing:0.04em;
+            transition:opacity 0.15s;
+          ">
+            Learn more <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SOLAR + BATTERY SECTION (HA: white bg, copy left, visual right)
+       ============================================= -->
+  <section style="background:#fff;padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="split-grid">
+        <!-- Copy -->
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:32px;background:#dbeafe;color:#0369a1;font-size:12px;font-weight:700;margin-bottom:20px;">
+            <iconify-icon icon="mdi:solar-panel" width="14"></iconify-icon>
+            Solar + Battery Storage
+          </div>
+          <h2 class="section-h2" style="font-size:2.5rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.1;margin-bottom:20px;">
+            Your home, off the grid
+          </h2>
+          <p style="font-size:1.125rem;color:#4f606e;line-height:1.75;margin-bottom:28px;">
+            San Diego gets more sun than nearly anywhere in the country. We design custom solar systems, handle every permit, and pair them with Savant Power Storage, Tesla Powerwall 3, or Enphase IQ for true energy independence.
+          </p>
+          <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+            {[
+              'Tier-1 panels: SunPower, REC, Enphase',
+              'Savant Power Storage, Tesla Powerwall 3 & Enphase IQ',
+              'NEM 3.0 compliant system design',
+              'Full permit & utility interconnection handling',
+              'Monitoring app setup & training',
+            ].map(f => (
+              <li style="display:flex;align-items:center;gap:10px;font-size:0.9375rem;color:#4f606e;">
+                <iconify-icon icon="mdi:check-circle" width="18" style="color:#16b84a;flex-shrink:0;"></iconify-icon>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/services#solar" style="
+            display:inline-flex;align-items:center;gap:6px;
+            background-color:#0d8c32;color:white;
+            font-weight:700;font-size:1rem;
+            padding:10px 20px;border-radius:32px;text-decoration:none;
+            text-transform:uppercase;letter-spacing:0.04em;
+          ">
+            Learn more <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+          </a>
+        </div>
+
+        <!-- Energy dashboard mockup -->
+        <div>
+          <div style="
+            background: linear-gradient(160deg, #062030 0%, #083048 100%);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+          ">
+            <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.45);margin-bottom:16px;">Live Energy Dashboard</p>
+            <!-- Stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;">
+              {[
+                {label:'Solar',val:'8.4 kW',icon:'mdi:solar-power-variant',color:'#fbbf24'},
+                {label:'Battery',val:'94%',icon:'mdi:battery-charging',color:'#34d399'},
+                {label:'Grid',val:'0 kW',icon:'mdi:transmission-tower',color:'rgba(255,255,255,0.3)'},
+              ].map(m => (
+                <div style="background:rgba(255,255,255,0.06);border-radius:12px;padding:10px;text-align:center;">
+                  <iconify-icon icon={m.icon} width="20" style={`color:${m.color};`}></iconify-icon>
+                  <p style={`font-size:14px;font-weight:800;color:${m.color};margin:4px 0 0;`}>{m.val}</p>
+                  <p style="font-size:10px;color:rgba(255,255,255,0.4);margin:2px 0 0;">{m.label}</p>
+                </div>
+              ))}
+            </div>
+            <!-- Battery bar -->
+            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:12px 14px;margin-bottom:10px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <span style="font-size:12px;font-weight:700;color:white;">Savant PS20</span>
+                <span style="font-size:11px;color:#34d399;font-weight:700;">Charging +1.2 kW</span>
+              </div>
+              <div style="height:8px;background:rgba(255,255,255,0.1);border-radius:4px;overflow:hidden;">
+                <div style="height:100%;width:94%;background:linear-gradient(90deg,#0fb8a0,#34d399);border-radius:4px;"></div>
+              </div>
+              <p style="font-size:10px;color:rgba(255,255,255,0.35);margin:6px 0 0;">Est. full in 18 min</p>
+            </div>
+            <!-- Savings -->
+            <div style="background:rgba(22,184,74,0.12);border:1px solid rgba(22,184,74,0.25);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+              <iconify-icon icon="mdi:cash-multiple" width="20" style="color:#34d399;"></iconify-icon>
+              <div>
+                <p style="font-size:13px;font-weight:700;color:white;margin:0;">$247 saved this month</p>
+                <p style="font-size:10px;color:rgba(255,255,255,0.4);margin:2px 0 0;">Zero grid import since Sunday</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       DARK SECTION — HA: #1c1e21 bg, trust/why us
+       ============================================= -->
+  <section style="background:#1c1e21;padding:80px 0;color:white;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="text-align:center;margin-bottom:48px;">
+        <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#16b84a;margin-bottom:12px;">Why Green Choice</p>
+        <h2 class="section-h2" style="font-size:2.5rem;font-weight:800;letter-spacing:-0.5px;color:white;line-height:1.1;">Built different</h2>
+        <p style="font-size:1.125rem;color:rgba(255,255,255,0.6);max-width:480px;margin:12px auto 0;line-height:1.7;">Not a dispatch service. Not a franchise. Owner-operated, hands-on, and built around the future of home energy.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;" class="dark-grid">
+        {[
+          {icon:'mdi:shield-check',color:'#16b84a',bg:'rgba(22,184,74,0.12)',title:'Licensed & Insured',body:'CA C-10 licensed electrician. Fully bonded and insured on every job, large or small.'},
+          {icon:'mdi:map-marker',color:'#22d3ee',bg:'rgba(34,211,238,0.12)',title:'Local La Jolla Expert',body:"We know the homes, HOAs, and permit requirements of La Jolla and coastal San Diego."},
+          {icon:'mdi:star',color:'#fbbf24',bg:'rgba(251,191,36,0.12)',title:'5-Star Rated',body:'Consistent 5-star reviews on Google from La Jolla, Del Mar, Bird Rock, and Carmel Valley.'},
+          {icon:'mdi:recycle',color:'#a78bfa',bg:'rgba(167,139,250,0.12)',title:'Clean Energy Focus',body:'Solar, storage, EV infrastructure — built around the future of home energy, not the past.'},
+        ].map(c => (
+          <div style="border-radius:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:24px;">
+            <div style={`width:56px;height:56px;border-radius:64px;background:${c.bg};display:flex;align-items:center;justify-content:center;margin-bottom:16px;`}>
+              <iconify-icon icon={c.icon} width="28" style={`color:${c.color};`}></iconify-icon>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;color:white;margin:0 0 8px;">{c.title}</h3>
+            <p style="font-size:0.875rem;color:rgba(255,255,255,0.55);line-height:1.65;margin:0;">{c.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       REVIEWS  (HA: community cards, mixed light bg)
+       ============================================= -->
+  <section style="background:#f2f4f9;padding:80px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="text-align:center;margin-bottom:48px;">
+        <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#16b84a;margin-bottom:12px;">Customer Reviews</p>
+        <h2 class="section-h2" style="font-size:2.5rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.1;">What La Jolla homeowners say</h2>
+        <div style="display:flex;align-items:center;justify-content:center;gap:4px;margin-top:12px;">
+          {Array.from({length:5}).map(() => (
+            <iconify-icon icon="mdi:star" width="22" style="color:#f59e0b;"></iconify-icon>
+          ))}
+          <span style="margin-left:6px;font-weight:800;font-size:1.1rem;color:#0c0c0c;">5.0</span>
+          <span style="color:#4f606e;font-size:0.9rem;margin-left:4px;">on Google</span>
+        </div>
+      </div>
+
+      <!-- HA-style community cards: mix of colored cards -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;" class="review-grid">
+        {[
+          {name:'Michael T.',loc:'La Jolla',svc:'Solar + Battery',body:"Installed our 12 kW solar + Tesla Powerwall 3. Seth handled every permit, communicated every step, and we went live ahead of schedule. Couldn't recommend more.",dark:true},
+          {name:'Jennifer L.',loc:'Del Mar',svc:'Lutron',body:"RadioRA 3 throughout our home — 38 zones including motorized shades. Seth programmed scenes we actually use every day. It's genuinely transformed how our home feels.",dark:false},
+          {name:'David K.',loc:'Bird Rock',svc:'Panel + EV Charger',body:"200A panel upgrade and Level 2 EV charger in a single day. Passed inspection first try. Competitive quote, explained exactly what was needed — and what wasn't.",dark:false},
+          {name:'Sarah M.',loc:'Rancho Santa Fe',svc:'Battery Storage',body:"First outage since installing our Savant Power Storage system. We didn't even notice the grid was down. The Savant app showing our home running on stored solar is so satisfying.",dark:false},
+          {name:'Robert A.',loc:'Carmel Valley',svc:'Solar',body:"Seth was the only contractor who showed me a real load analysis. Eight months in, we're producing exactly what he projected. That detail-orientation says everything.",dark:true},
+          {name:'Christine W.',loc:'Solana Beach',svc:'Lutron Caseta',body:"Retrofitted our entire downstairs in one day. Works perfectly with Apple HomeKit. Clean install — you'd never know anything changed except the lights now do exactly what we want.",dark:false},
+        ].map(r => (
+          <div style={`
+            border-radius: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            ${r.dark
+              ? 'background:#1c1e21;color:white;'
+              : 'background:white;color:#0c0c0c;border:1px solid #e8edf0;'}
+          `}>
+            <!-- Quote icon — HA style -->
+            <div style={`font-size:2rem;font-weight:900;line-height:1;margin-bottom:12px;${r.dark?'color:rgba(22,184,74,0.6);':'color:#CCFFE4;'}`}>"</div>
+            <p style={`font-size:0.9375rem;line-height:1.65;flex:1;margin-bottom:20px;${r.dark?'color:rgba(255,255,255,0.8);':'color:#4f606e;'}`}>{r.body}</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;">
+              <div>
+                <p style={`font-size:0.9375rem;font-weight:700;margin:0;${r.dark?'color:white;':'color:#0c0c0c;'}`}>{r.name}</p>
+                <p style={`font-size:0.8125rem;margin:2px 0 0;${r.dark?'color:rgba(255,255,255,0.45);':'color:#8792a2;'}`}>{r.loc}</p>
+              </div>
+              <span style={`font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:32px;${r.dark?'background:rgba(22,184,74,0.15);color:#34d399;':'background:#dcfce7;color:#15803d;'}`}>
+                {r.svc}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style="text-align:center;margin-top:32px;">
+        <a href="/reviews" style="
+          display:inline-flex;align-items:center;gap:6px;
+          color:#0d8c32;font-weight:700;font-size:1rem;
+          text-decoration:none;padding:10px 20px;
+          border-radius:32px;background:#dcfce7;
+          transition:background 0.15s;
+        ">
+          Read all reviews <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SERVICE AREA
+       ============================================= -->
+  <section style="background:#fff;padding:60px 0;border-top:1px solid #e8edf0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:#8792a2;margin-bottom:20px;">Service Area</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;">
+        {['La Jolla','Del Mar','Pacific Beach','Bird Rock','Rancho Santa Fe','Carmel Valley','Solana Beach','Encinitas','Point Loma','Coronado','UTC','Mission Hills'].map(a => (
+          <span style="padding:8px 16px;border-radius:32px;border:1px solid #e8edf0;background:#f2f4f9;color:#4f606e;font-size:0.875rem;font-weight:600;">{a}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================
+       FINAL CTA  (HA: gradient bg, centered)
+       ============================================= -->
+  <section style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 96px 0;
+    text-align: center;
+    color: white;
+  ">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 style="
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 20px;
+        background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">
+        Ready to get started?
+      </h2>
+      <p style="font-size:1.25rem;color:rgba(255,255,255,0.85);line-height:1.75;margin-bottom:36px;">
+        Free estimates, fast scheduling, same-day response. Call or request a quote online.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;">
+        <a href="/contact" style="
+          font-family:'Figtree','Helvetica Neue',Arial,sans-serif;
+          background-color:#0d8c32;
+          color:white;
+          text-transform:uppercase;
+          font-size:1.25rem;
+          font-weight:700;
+          padding:10px 20px 10px 28px;
+          border-radius:32px;
+          text-decoration:none;
+          display:inline-flex;
+          align-items:center;
+          gap:8px;
+        ">
+          Request a free estimate
+          <iconify-icon icon="mdi:arrow-right" width="22"></iconify-icon>
+        </a>
+        <a href="tel:+18588697440" style="
+          color:rgba(255,255,255,0.9);
+          font-size:1.125rem;
+          font-weight:600;
+          text-decoration:none;
+          padding:10px 20px;
+          border-radius:32px;
+          border:2px solid rgba(255,255,255,0.4);
+        ">(858) 869-7440</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* === Tablet (iPad 768–1024px) === */
+  @media (max-width: 1024px) {
+    .split-grid   { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .dark-grid    { grid-template-columns: 1fr 1fr !important; }
+    .review-grid  { grid-template-columns: 1fr 1fr !important; }
+    .feature-grid { grid-template-columns: 1fr 1fr !important; }
+    .section-h2   { font-size: 2rem !important; }
+  }
+  /* === Large phone / small tablet (640–768px) === */
+  @media (max-width: 768px) {
+    .section-h2   { font-size: 1.875rem !important; }
+  }
+  /* === Mobile (< 640px) === */
+  @media (max-width: 640px) {
+    .feature-grid { grid-template-columns: 1fr !important; }
+    .dark-grid    { grid-template-columns: 1fr !important; }
+    .review-grid  { grid-template-columns: 1fr !important; }
+    .hero-section { min-height: 600px !important; height: auto !important; padding-bottom: 60px !important; }
+    .hero-lead    { font-size: 1.125rem !important; line-height: 1.75rem !important; margin-bottom: 20px !important; }
+    .hero-cta     { font-size: 1rem !important; padding: 10px 18px 10px 22px !important; }
+    .section-h2   { font-size: 1.75rem !important; }
+  }
+  /* === Small phone (< 480px) === */
+  @media (max-width: 480px) {
+    .section-h2   { font-size: 1.5rem !important; }
+    .hero-lead    { font-size: 1rem !important; }
+  }
+  .feature-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+</style>

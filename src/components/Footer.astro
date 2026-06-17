@@ -1,0 +1,93 @@
+---
+const services = [
+  { label: 'Lutron Smart Lighting', href: '/services#lutron' },
+  { label: 'Solar Installation',    href: '/services#solar' },
+  { label: 'Battery Storage',       href: '/services#battery' },
+  { label: 'Residential Electrical',href: '/services#residential' },
+  { label: 'EV Charger Installation',href: '/services#residential' },
+];
+const links = [
+  { label: 'About',   href: '/about' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Reviews', href: '/reviews' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Privacy', href: '/privacy' },
+];
+const year = new Date().getFullYear();
+---
+
+<footer style="background:#1c1e21;color:rgba(255,255,255,0.55);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style="padding-top:64px;padding-bottom:64px;">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;" class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
+          <div style="
+            width:32px;height:32px;border-radius:10px;
+            background:linear-gradient(340deg,hsl(145,80%,38%) 0%,hsl(175,85%,38%) 100%);
+            display:flex;align-items:center;justify-content:center;flex-shrink:0;
+          ">
+            <iconify-icon icon="mdi:lightning-bolt" width="18" style="color:white;"></iconify-icon>
+          </div>
+          <span style="font-weight:800;font-size:1.05rem;color:white;letter-spacing:-0.3px;">
+            <span style="color:#16b84a;">Green</span> Choice
+          </span>
+        </a>
+        <p style="font-size:0.875rem;line-height:1.7;max-width:300px;margin-bottom:20px;">
+          Premium electrical for La Jolla and coastal San Diego — Lutron smart lighting, solar, battery storage, and residential electrical.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:0.875rem;">
+          <a href="tel:+18588697440" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.15s;" class="footer-link">
+            <iconify-icon icon="mdi:phone" width="15" style="color:#16b84a;flex-shrink:0;"></iconify-icon>(858) 869-7440
+          </a>
+          <a href="mailto:info@greenchoiceelectric.com" style="display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.15s;" class="footer-link">
+            <iconify-icon icon="mdi:email" width="15" style="color:#16b84a;flex-shrink:0;"></iconify-icon>info@greenchoiceelectric.com
+          </a>
+          <span style="display:inline-flex;align-items:center;gap:8px;">
+            <iconify-icon icon="mdi:map-marker" width="15" style="color:#16b84a;flex-shrink:0;"></iconify-icon>La Jolla, CA 92037
+          </span>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:white;margin-bottom:16px;">Services</h3>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+          {services.map(s => (
+            <li><a href={s.href} style="font-size:0.875rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.15s;" class="footer-link">{s.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <h3 style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:white;margin-bottom:16px;">Company</h3>
+        <ul style="list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;">
+          {links.map(l => (
+            <li><a href={l.href} style="font-size:0.875rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:color 0.15s;" class="footer-link">{l.label}</a></li>
+          ))}
+        </ul>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:14px;font-size:0.8125rem;">
+          <p style="color:white;font-weight:700;margin:0 0 6px;">License Info</p>
+          <p style="margin:0;line-height:1.8;">CA C-10 #[LICENSE]<br/>Fully Insured &amp; Bonded<br/>NABCEP Certified</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06);margin-top:48px;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;font-size:0.8125rem;">
+      <p style="margin:0;">&copy; {year} Green Choice Electric. All rights reserved.</p>
+      <p style="margin:0;">La Jolla · Del Mar · Pacific Beach · Rancho Santa Fe · Coastal San Diego</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-link:hover { color: white !important; }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr !important; }
+  }
+</style>

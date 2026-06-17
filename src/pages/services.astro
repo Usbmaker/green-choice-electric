@@ -1,0 +1,227 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'lutron',
+    badge: 'Smart Lighting',
+    badgeColor: '#7c3aed',
+    badgeBg: '#ede9fe',
+    icon: 'mdi:lightbulb-auto',
+    iconColor: '#7c3aed',
+    iconBg: '#ede9fe',
+    title: 'Lutron Smart Lighting',
+    intro: 'Transform your home with intelligent, effortless lighting. As a certified Lutron dealer, we design and install systems that go far beyond a smart bulb — think whole-home scenes, natural daylight tuning, and flawless integration with Alexa, Apple HomeKit, and Google Home.',
+    features: [
+      'Lutron Caseta — easy retrofit for any home',
+      'RadioRA 3 — full architectural control',
+      'Whole-home scene programming',
+      'Motorized shades integration',
+      'Apple HomeKit, Alexa & Google Home compatible',
+      'Commercial-grade dimmers & keypads',
+    ],
+    flip: false,
+  },
+  {
+    id: 'solar',
+    badge: 'Solar Energy',
+    badgeColor: '#b45309',
+    badgeBg: '#fef3c7',
+    icon: 'mdi:solar-panel',
+    iconColor: '#b45309',
+    iconBg: '#fef3c7',
+    title: 'Solar Installation',
+    intro: "San Diego gets more sun than almost anywhere in the country. We design custom solar systems sized to your usage, handle every permit, and install with tier-1 panels. From design day to Permission to Operate, we manage the entire process.",
+    features: [
+      'Custom system design & load analysis',
+      'Tier-1 panel manufacturers (SunPower, REC, Enphase)',
+      'Full permit & utility interconnection handling',
+      'NEM 3.0 compliant designs',
+      'Battery-ready pre-wiring',
+      'Monitoring app setup & training',
+    ],
+    flip: true,
+  },
+  {
+    id: 'battery',
+    badge: 'Energy Storage',
+    badgeColor: '#0369a1',
+    badgeBg: '#dbeafe',
+    icon: 'mdi:battery-charging-high',
+    iconColor: '#0369a1',
+    iconBg: '#dbeafe',
+    title: 'Battery Storage',
+    intro: "Energy independence isn't just about generating power — it's about controlling it. We install whole-home battery systems that keep you running through outages, let you maximize solar self-consumption, and protect against rising TOU rates.",
+    features: [
+      'Savant Power Storage PS20/PS50 — smart home integrated',
+      'Tesla Powerwall 3 — seamless solar integration',
+      'Enphase IQ Battery — modular & expandable',
+      'Whole-home or critical load backup',
+      'Time-of-use optimization programming',
+      'EV + battery combined system design',
+    ],
+    flip: false,
+  },
+  {
+    id: 'residential',
+    badge: 'Residential',
+    badgeColor: '#16b84a',
+    badgeBg: '#dcfce7',
+    icon: 'mdi:lightning-bolt',
+    iconColor: '#16b84a',
+    iconBg: '#dcfce7',
+    title: 'Residential Electrical',
+    intro: "From a single outlet to a full panel upgrade, we handle the complete spectrum of residential electrical work. Every job is permitted, inspected, and done with commercial-grade materials. No shortcuts, no callbacks.",
+    features: [
+      'Main panel upgrades (100A, 200A, 400A)',
+      'EV charger installation (Level 2 & DCFC)',
+      'Recessed lighting & ceiling fans',
+      'Kitchen & bathroom electrical',
+      'Whole-home surge protection',
+      'Dedicated circuits for home office, theater, gym',
+    ],
+    flip: true,
+  },
+];
+---
+
+<Layout title="Services" description="Lutron smart lighting, solar installation, battery storage, and premium residential electrical in La Jolla and coastal San Diego.">
+  <Header />
+
+  <!-- Page header -->
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 72px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.75);margin-bottom:12px;">What We Offer</p>
+      <h1 style="
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 16px;
+        background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">Our Services</h1>
+      <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+        Every service we offer reflects a single commitment: clean, reliable electrical work — done right the first time.
+      </p>
+    </div>
+  </div>
+
+  <!-- Service sections -->
+  {services.map((s, i) => (
+    <section
+      id={s.id}
+      style={`background:${i % 2 === 0 ? '#fff' : '#f0f0f3'};padding:80px 0;scroll-margin-top:72px;`}
+      class="section-pad"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div style={`display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;`} class="svc-grid">
+
+          <!-- Content -->
+          <div style={s.flip ? 'order:2;' : ''}>
+            <div style={`display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:32px;background:${s.badgeBg};color:${s.badgeColor};font-size:12px;font-weight:700;margin-bottom:20px;`}>
+              <iconify-icon icon={s.icon} width="14" style={`color:${s.iconColor};`}></iconify-icon>
+              {s.badge}
+            </div>
+            <h2 class="section-h2" style="font-size:2.25rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.1;margin-bottom:16px;">{s.title}</h2>
+            <p style="font-size:1rem;color:#4f606e;line-height:1.8;margin-bottom:24px;">{s.intro}</p>
+
+            <ul style="list-style:none;padding:0;margin:0 0 28px;display:flex;flex-direction:column;gap:10px;">
+              {s.features.map(f => (
+                <li style="display:flex;align-items:center;gap:10px;font-size:0.9375rem;color:#4f606e;">
+                  <iconify-icon icon="mdi:check-circle" width="18" style={`color:${s.iconColor};flex-shrink:0;`}></iconify-icon>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <a href="/contact" style={`
+              display:inline-flex;align-items:center;gap:8px;
+              background-color:#0d8c32;color:white;
+              font-weight:700;font-size:0.9375rem;text-transform:uppercase;letter-spacing:0.04em;
+              padding:10px 20px;border-radius:32px;text-decoration:none;
+            `}>
+              Get a free estimate
+              <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+            </a>
+          </div>
+
+          <!-- Visual placeholder -->
+          <div style={s.flip ? 'order:1;' : ''}>
+            <div style={`
+              border-radius: 24px;
+              aspect-ratio: 4/3;
+              background: linear-gradient(135deg, #0c0c0c 0%, #1c1e21 100%);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 0 24px 48px rgba(0,0,0,0.12);
+              overflow: hidden;
+              position: relative;
+            `}>
+              <div style={`position:absolute;inset:0;opacity:0.15;background:radial-gradient(ellipse at 40% 30%, ${s.iconColor} 0%, transparent 70%);`}></div>
+              <div style="text-align:center;position:relative;z-index:1;">
+                <div style={`width:80px;height:80px;border-radius:64px;background:${s.iconBg};display:flex;align-items:center;justify-content:center;margin:0 auto 12px;`}>
+                  <iconify-icon icon={s.icon} width="40" style={`color:${s.iconColor};`}></iconify-icon>
+                </div>
+                <p style="color:rgba(255,255,255,0.4);font-size:0.8125rem;font-weight:600;">Photo coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- Bottom CTA -->
+  <section style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+  ">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 style="font-size:2rem;font-weight:800;letter-spacing:-0.5px;color:white;margin-bottom:12px;">Not sure what you need?</h2>
+      <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;line-height:1.75;margin-bottom:28px;">
+        We're happy to walk through your project, offer options, and give you a no-pressure estimate — at no charge.
+      </p>
+      <a href="/contact" style="
+        display:inline-flex;align-items:center;gap:8px;
+        background-color:#0d8c32;color:white;
+        font-weight:700;font-size:1rem;text-transform:uppercase;
+        padding:10px 24px;border-radius:32px;text-decoration:none;
+      ">
+        Schedule a free consultation
+        <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  @media (max-width: 768px) {
+    .svc-grid    { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .svc-grid > div[style*="order:2"] { order: 1 !important; }
+    .svc-grid > div[style*="order:1"] { order: 2 !important; }
+    .page-header { padding: 88px 0 40px !important; }
+    .section-h2  { font-size: 1.875rem !important; }
+    .section-pad { padding: 56px 0 !important; }
+  }
+  @media (max-width: 480px) {
+    .page-header { padding: 80px 0 32px !important; }
+    .section-h2  { font-size: 1.625rem !important; }
+    .section-pad { padding: 40px 0 !important; }
+  }
+</style>

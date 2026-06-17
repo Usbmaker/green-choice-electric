@@ -1,0 +1,202 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const contactMethods = [
+  { icon: 'mdi:phone',      label: 'Phone',    value: '(858) 869-7440',               href: 'tel:+18588697440',                      sub: 'Mon–Fri 7am–6pm · Sat 8am–2pm',      color: '#16b84a', bg: '#dcfce7' },
+  { icon: 'mdi:email',      label: 'Email',    value: 'info@greenchoiceelectric.com',  href: 'mailto:info@greenchoiceelectric.com',    sub: 'We respond within a few hours',       color: '#0369a1', bg: '#dbeafe' },
+  { icon: 'mdi:map-marker', label: 'Based In', value: 'La Jolla, CA 92037',            href: null,                                     sub: 'Serving all of coastal San Diego',    color: '#7c3aed', bg: '#ede9fe' },
+];
+
+const hours = [
+  { day: 'Monday – Friday', time: '7:00 AM – 6:00 PM' },
+  { day: 'Saturday',        time: '8:00 AM – 2:00 PM' },
+  { day: 'Sunday',          time: 'Closed' },
+];
+---
+
+<Layout title="Contact" description="Request a free estimate from Green Choice Electric — La Jolla's licensed electrician for smart lighting, solar, battery storage, and residential electrical.">
+  <Header />
+
+  <!-- Page header -->
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 72px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <p style="font-size:0.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:0.15em;color:rgba(255,255,255,0.75);margin-bottom:12px;">Get in Touch</p>
+      <h1 style="
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 16px;
+        background: linear-gradient(125deg, #FFF 29.3%, #80FFD4 89.99%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">Request a Free Estimate</h1>
+      <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
+        No pressure, no obligation. Tell us about your project and we'll get back to you same day.
+      </p>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section style="background:#f0f0f3;padding:72px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:grid;grid-template-columns:3fr 2fr;gap:40px;align-items:start;" class="contact-grid">
+
+        <!-- Form -->
+        <div class="form-card" style="background:white;border-radius:24px;padding:36px;border:1px solid #e8edf0;">
+          <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.3px;color:#0c0c0c;margin-bottom:28px;">Tell us about your project</h2>
+
+          <form name="estimate" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:20px;">
+            <input type="hidden" name="form-name" value="estimate" />
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="form-row">
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="first-name">First name</label>
+                <input type="text" id="first-name" name="first-name" required placeholder="Jane"
+                  style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;transition:border-color 0.15s;box-sizing:border-box;" class="form-input" />
+              </div>
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="last-name">Last name</label>
+                <input type="text" id="last-name" name="last-name" required placeholder="Smith"
+                  style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;transition:border-color 0.15s;box-sizing:border-box;" class="form-input" />
+              </div>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="form-row">
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="phone">Phone number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(858) 555-0000"
+                  style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;transition:border-color 0.15s;box-sizing:border-box;" class="form-input" />
+              </div>
+              <div>
+                <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="email">Email address</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com"
+                  style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;transition:border-color 0.15s;box-sizing:border-box;" class="form-input" />
+              </div>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="service">Service needed</label>
+              <select id="service" name="service"
+                style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;background:white;transition:border-color 0.15s;box-sizing:border-box;" class="form-input">
+                <option value="">Select a service…</option>
+                <option value="lutron">Lutron Smart Lighting</option>
+                <option value="solar">Solar Installation</option>
+                <option value="battery">Battery Storage</option>
+                <option value="ev-charger">EV Charger Installation</option>
+                <option value="panel-upgrade">Panel Upgrade</option>
+                <option value="residential">General Residential Electrical</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="address">Property address <span style="font-weight:400;color:#8792a2;">(optional)</span></label>
+              <input type="text" id="address" name="address" placeholder="1234 Prospect St, La Jolla, CA"
+                style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;transition:border-color 0.15s;box-sizing:border-box;" class="form-input" />
+            </div>
+
+            <div>
+              <label style="display:block;font-size:0.875rem;font-weight:700;color:#0c0c0c;margin-bottom:6px;" for="message">Project description</label>
+              <textarea id="message" name="message" rows="4"
+                placeholder="Tell us what you're looking to do — the more detail, the better we can prepare for your estimate."
+                style="width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid #e8edf0;font-size:0.9375rem;color:#0c0c0c;outline:none;font-family:inherit;resize:none;transition:border-color 0.15s;box-sizing:border-box;" class="form-input"></textarea>
+            </div>
+
+            <button type="submit" style="
+              width:100%;padding:14px;border-radius:32px;border:none;cursor:pointer;
+              background-color:#0d8c32;color:white;
+              font-family:inherit;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;
+              transition:opacity 0.15s;
+            ">
+              Send My Request
+            </button>
+
+            <p style="font-size:0.8125rem;color:#8792a2;text-align:center;margin:0;">
+              We'll respond within a few hours during business hours. Your information is never shared.
+            </p>
+          </form>
+        </div>
+
+        <!-- Sidebar -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <!-- Contact methods -->
+          {contactMethods.map(m => (
+            <div style="background:white;border-radius:24px;padding:20px;border:1px solid #e8edf0;display:flex;align-items:flex-start;gap:14px;">
+              <div style={`width:44px;height:44px;border-radius:64px;background:${m.bg};display:flex;align-items:center;justify-content:center;flex-shrink:0;`}>
+                <iconify-icon icon={m.icon} width="22" style={`color:${m.color};`}></iconify-icon>
+              </div>
+              <div>
+                <p style="font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#8792a2;margin:0 0 3px;">{m.label}</p>
+                {m.href
+                  ? <a href={m.href} style={`font-weight:700;font-size:0.9375rem;color:${m.color};text-decoration:none;`}>{m.value}</a>
+                  : <p style="font-weight:700;font-size:0.9375rem;color:#0c0c0c;margin:0;">{m.value}</p>
+                }
+                <p style="font-size:0.8125rem;color:#8792a2;margin:3px 0 0;">{m.sub}</p>
+              </div>
+            </div>
+          ))}
+
+          <!-- Service area -->
+          <div style="background:white;border-radius:24px;padding:20px;border:1px solid #e8edf0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+              <div style="width:36px;height:36px;border-radius:64px;background:#dcfce7;display:flex;align-items:center;justify-content:center;">
+                <iconify-icon icon="mdi:map-marker-radius" width="18" style="color:#16b84a;"></iconify-icon>
+              </div>
+              <h3 style="font-size:0.875rem;font-weight:700;color:#0c0c0c;margin:0;">Service Area</h3>
+            </div>
+            <p style="font-size:0.8125rem;color:#4f606e;line-height:1.8;margin:0 0 8px;">
+              La Jolla · Del Mar · Pacific Beach · Bird Rock · Rancho Santa Fe · Carmel Valley · Solana Beach · Encinitas · Point Loma · Coronado · UTC
+            </p>
+            <p style="font-size:0.8125rem;color:#16b84a;font-weight:700;margin:0;">Not on this list? Ask — we may still serve your area.</p>
+          </div>
+
+          <!-- Hours -->
+          <div style="background:white;border-radius:24px;padding:20px;border:1px solid #e8edf0;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+              <div style="width:36px;height:36px;border-radius:64px;background:#dcfce7;display:flex;align-items:center;justify-content:center;">
+                <iconify-icon icon="mdi:clock-outline" width="18" style="color:#16b84a;"></iconify-icon>
+              </div>
+              <h3 style="font-size:0.875rem;font-weight:700;color:#0c0c0c;margin:0;">Business Hours</h3>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              {hours.map(h => (
+                <div style="display:flex;justify-content:space-between;align-items:center;font-size:0.8125rem;">
+                  <span style="color:#4f606e;">{h.day}</span>
+                  <span style={`font-weight:700;${h.time==='Closed'?'color:#8792a2;':'color:#0c0c0c;'}`}>{h.time}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .form-input:focus { border-color: #16b84a !important; }
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr !important; }
+    .form-row     { grid-template-columns: 1fr !important; }
+    .page-header  { padding: 88px 0 40px !important; }
+    .form-card    { padding: 24px !important; }
+  }
+  @media (max-width: 480px) {
+    .page-header  { padding: 80px 0 32px !important; }
+    .form-card    { padding: 20px 16px !important; }
+  }
+</style>
