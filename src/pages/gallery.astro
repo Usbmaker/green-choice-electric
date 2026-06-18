@@ -5,19 +5,173 @@ import Footer from '../components/Footer.astro';
 
 const categories = ['All', 'Lutron', 'Solar', 'Battery', 'Residential'];
 
-const projects = [
-  { id:1, category:'Lutron',      title:'Whole-Home RadioRA 3',       location:'La Jolla Farms',   desc:'42-zone architectural lighting with motorized shades throughout.',      aspect:'tall',   iconColor:'#7c3aed', iconBg:'#ede9fe', icon:'mdi:lightbulb-auto',       gradient:'linear-gradient(135deg,#1e1040 0%,#2d1b6e 100%)' },
-  { id:2, category:'Solar',       title:'14.4 kW Rooftop Solar',      location:'Bird Rock',         desc:'SunPower Maxeon panels with Enphase microinverters.',                  aspect:'wide',   iconColor:'#b45309', iconBg:'#fef3c7', icon:'mdi:solar-panel',           gradient:'linear-gradient(135deg,#451a03 0%,#92400e 100%)' },
-  { id:3, category:'Battery',     title:'Tesla Powerwall 3',          location:'Del Mar',           desc:'Whole-home backup paired with existing 10 kW solar system.',          aspect:'square', iconColor:'#0369a1', iconBg:'#dbeafe', icon:'mdi:battery-charging-high', gradient:'linear-gradient(135deg,#082f49 0%,#0369a1 100%)' },
-  { id:4, category:'Residential', title:'200A Panel Upgrade',         location:'Pacific Beach',     desc:'Full service upgrade with whole-home surge protection.',               aspect:'square', iconColor:'#16b84a', iconBg:'#dcfce7', icon:'mdi:lightning-bolt',        gradient:'linear-gradient(135deg,#052e16 0%,#166534 100%)' },
-  { id:5, category:'Lutron',      title:'Caseta Retrofit',            location:'Solana Beach',      desc:'Smart dimmer retrofit across 3,200 sq ft without rewiring.',           aspect:'wide',   iconColor:'#7c3aed', iconBg:'#ede9fe', icon:'mdi:lightbulb-auto',       gradient:'linear-gradient(135deg,#1e1040 0%,#4c1d95 100%)' },
-  { id:6, category:'Solar',       title:'8.4 kW + Battery Bundle',    location:'Carmel Valley',     desc:'REC Alpha panels with Savant Power Storage PS50 for whole-home energy independence.',       aspect:'tall',   iconColor:'#b45309', iconBg:'#fef3c7', icon:'mdi:solar-power-variant',  gradient:'linear-gradient(135deg,#451a03 0%,#b45309 100%)' },
-  { id:7, category:'Residential', title:'EV Charger Installation',    location:'La Jolla',          desc:'Level 2 ChargePoint Home Flex on a dedicated 50A circuit.',            aspect:'square', iconColor:'#0fb8a0', iconBg:'#ccfbf1', icon:'mdi:ev-plug-type2',        gradient:'linear-gradient(135deg,#042f2e 0%,#0d9488 100%)' },
-  { id:8, category:'Battery',     title:'Savant Power Storage PS20 ×2', location:'Rancho Santa Fe',   desc:'Two-unit Savant PS20 install for 40 kWh of whole-home backup, integrated with existing solar.',       aspect:'wide',   iconColor:'#0369a1', iconBg:'#dbeafe', icon:'mdi:battery-charging',     gradient:'linear-gradient(135deg,#082f49 0%,#1d4ed8 100%)' },
-  { id:9, category:'Residential', title:'Kitchen Electrical Remodel', location:'Mission Hills',     desc:'Dedicated circuits, under-cabinet lighting, and GFCI upgrade.',       aspect:'square', iconColor:'#16b84a', iconBg:'#dcfce7', icon:'mdi:lightning-bolt',        gradient:'linear-gradient(135deg,#052e16 0%,#15803d 100%)' },
+const stats = [
+  { value: 200,  suffix: '+',    label: 'Permitted projects',         icon: 'mdi:home-lightning-bolt', color: '#16b84a' },
+  { value: 750,  suffix: ' kW+', label: 'Solar capacity installed',   icon: 'mdi:solar-power-variant', color: '#f59e0b' },
+  { value: 1200, suffix: '+',    label: 'Smart zones programmed',     icon: 'mdi:lightbulb-auto',      color: '#a78bfa' },
+  { value: 100,  suffix: '%',    label: 'First-inspection pass rate', icon: 'mdi:certificate',         color: '#38bdf8' },
 ];
 
-const categoryColors: Record<string, string> = {
+const projects = [
+  {
+    id: 1, category: 'Lutron',
+    headline: '42 zones. Motorized shades. One tap.',
+    location: 'La Jolla Farms',
+    specs: [
+      { label: 'System',   value: 'Lutron Homeworks QSX' },
+      { label: 'Scope',    value: '42 zones + motorized shades' },
+      { label: 'Timeline', value: '4 weeks' },
+      { label: 'Permit',   value: 'City of San Diego' },
+    ],
+    outcome: 'Whole-home scene control — sunrise to evening in one tap.',
+    quote: "Seth spent time understanding exactly how we use each space and programmed scenes we actually use every day. It's genuinely transformed our home.",
+    quoteAuthor: 'Jennifer L., La Jolla Farms',
+    statValue: '42', statLabel: 'zones', statFill: 84,
+    icon: 'mdi:lightbulb-auto',
+    gradient: 'linear-gradient(155deg,#1e1040 0%,#2d1b6e 60%,#4c1d95 100%)',
+    accentColor: '#a78bfa',
+  },
+  {
+    id: 2, category: 'Solar',
+    headline: '14.4 kW rooftop solar. Net-zero since day one.',
+    location: 'Bird Rock',
+    specs: [
+      { label: 'Panels',   value: 'SunPower Maxeon 400W × 36' },
+      { label: 'Inverter', value: 'Enphase IQ8 microinverters' },
+      { label: 'Timeline', value: '3 weeks' },
+      { label: 'Permit',   value: 'City of SD + SDG&E interconnect' },
+    ],
+    outcome: 'Net-zero energy bills since install. Grid cost: $0 in June.',
+    quote: 'Seth handled every permit, communicated every step of the way, and the install crew was incredibly clean and professional. We went live ahead of schedule.',
+    quoteAuthor: 'Marcus T., Bird Rock',
+    statValue: '14.4 kW', statLabel: 'installed', statFill: 72,
+    icon: 'mdi:solar-panel',
+    gradient: 'linear-gradient(155deg,#451a03 0%,#92400e 60%,#b45309 100%)',
+    accentColor: '#fbbf24',
+  },
+  {
+    id: 3, category: 'Battery',
+    headline: 'Tesla Powerwall 3. Two outages. Zero downtime.',
+    location: 'Del Mar',
+    specs: [
+      { label: 'System',   value: 'Tesla Powerwall 3' },
+      { label: 'Capacity', value: '13.5 kWh · 11.5 kW output' },
+      { label: 'Timeline', value: '1 day' },
+      { label: 'Permit',   value: 'City of Del Mar' },
+    ],
+    outcome: 'Survived two grid outages since install — never lost power.',
+    quote: 'Green Choice added a Tesla Powerwall 3 to our 12 kW solar system, and the whole process was seamless.',
+    quoteAuthor: 'David R., Del Mar',
+    statValue: '13.5 kWh', statLabel: 'backup capacity', statFill: 90,
+    icon: 'mdi:battery-charging-high',
+    gradient: 'linear-gradient(155deg,#082f49 0%,#0369a1 60%,#0ea5e9 100%)',
+    accentColor: '#38bdf8',
+  },
+  {
+    id: 4, category: 'Residential',
+    headline: '200A service upgrade. Built for the next 50 years.',
+    location: 'Pacific Beach',
+    specs: [
+      { label: 'Panel',    value: 'Siemens 200A main panel' },
+      { label: 'Scope',    value: 'Full upgrade + surge + AFCI protection' },
+      { label: 'Timeline', value: '1 day' },
+      { label: 'Permit',   value: 'City of San Diego' },
+    ],
+    outcome: 'Passed first inspection. EV charger and solar-ready.',
+    quote: null, quoteAuthor: null,
+    statValue: '200A', statLabel: 'service', statFill: 100,
+    icon: 'mdi:lightning-bolt',
+    gradient: 'linear-gradient(155deg,#052e16 0%,#166534 60%,#16b84a 100%)',
+    accentColor: '#4ade80',
+  },
+  {
+    id: 5, category: 'Lutron',
+    headline: '3,200 sq ft. 24 dimmers. Zero drywall opened.',
+    location: 'Solana Beach',
+    specs: [
+      { label: 'System',   value: 'Lutron Caseta + Pico remotes' },
+      { label: 'Scope',    value: '24 zones across 3,200 sq ft' },
+      { label: 'Timeline', value: '2 days' },
+      { label: 'Permit',   value: 'City of Solana Beach' },
+    ],
+    outcome: 'Smart dimming throughout in one weekend. No rewiring, no mess.',
+    quote: null, quoteAuthor: null,
+    statValue: '24', statLabel: 'zones, no rewiring', statFill: 48,
+    icon: 'mdi:lightbulb-auto',
+    gradient: 'linear-gradient(155deg,#1e1040 0%,#4c1d95 60%,#6d28d9 100%)',
+    accentColor: '#a78bfa',
+  },
+  {
+    id: 6, category: 'Solar',
+    headline: '8.4 kW solar + 50 kWh storage. Off-grid capable.',
+    location: 'Carmel Valley',
+    specs: [
+      { label: 'Panels',  value: 'REC Alpha 400W × 21' },
+      { label: 'Storage', value: 'Savant Power Storage PS50' },
+      { label: 'Timeline', value: '5 weeks' },
+      { label: 'Permit',  value: 'City of SD + SDG&E' },
+    ],
+    outcome: 'Grid draw dropped 91% in month one. On track to pay back in 5 years.',
+    quote: null, quoteAuthor: null,
+    statValue: '50 kWh', statLabel: 'storage', statFill: 100,
+    icon: 'mdi:solar-power-variant',
+    gradient: 'linear-gradient(155deg,#451a03 0%,#b45309 60%,#d97706 100%)',
+    accentColor: '#fbbf24',
+  },
+  {
+    id: 7, category: 'Residential',
+    headline: 'Level 2 EV charger. Full charge before sunrise.',
+    location: 'La Jolla',
+    specs: [
+      { label: 'Charger',  value: 'ChargePoint Home Flex' },
+      { label: 'Circuit',  value: '50A dedicated · 48A output' },
+      { label: 'Timeline', value: 'Half day' },
+      { label: 'Permit',   value: 'City of San Diego' },
+    ],
+    outcome: 'Tesla Model 3 fully charged overnight. Install completed before lunch.',
+    quote: null, quoteAuthor: null,
+    statValue: '50A', statLabel: 'dedicated circuit', statFill: 100,
+    icon: 'mdi:ev-plug-type2',
+    gradient: 'linear-gradient(155deg,#042f2e 0%,#0d9488 60%,#0fb8a0 100%)',
+    accentColor: '#2dd4bf',
+  },
+  {
+    id: 8, category: 'Battery',
+    headline: '40 kWh whole-home backup. Outage-proof.',
+    location: 'Rancho Santa Fe',
+    specs: [
+      { label: 'System',   value: 'Savant Power Storage PS20 × 2' },
+      { label: 'Capacity', value: '40 kWh total · 20 kW peak output' },
+      { label: 'Timeline', value: '2 days' },
+      { label: 'Permit',   value: 'County of San Diego' },
+    ],
+    outcome: 'Every circuit protected. Solar-integrated, utility-independent.',
+    quote: null, quoteAuthor: null,
+    statValue: '40 kWh', statLabel: 'total storage', statFill: 80,
+    icon: 'mdi:battery-charging',
+    gradient: 'linear-gradient(155deg,#082f49 0%,#1d4ed8 60%,#3b82f6 100%)',
+    accentColor: '#60a5fa',
+  },
+  {
+    id: 9, category: 'Residential',
+    headline: 'Kitchen remodel. 8 circuits, 22 outlets, done right.',
+    location: 'Mission Hills',
+    specs: [
+      { label: 'Hardware', value: 'Leviton AFCI/GFCI + LED undercabinet' },
+      { label: 'Scope',    value: '8 circuits · 22 outlets · lighting' },
+      { label: 'Timeline', value: '3 days' },
+      { label: 'Permit',   value: 'City of San Diego' },
+    ],
+    outcome: 'Passed final inspection first try. Clean, compliant, code-ready.',
+    quote: null, quoteAuthor: null,
+    statValue: '8', statLabel: 'new circuits', statFill: 60,
+    icon: 'mdi:lightning-bolt',
+    gradient: 'linear-gradient(155deg,#052e16 0%,#15803d 60%,#16b84a 100%)',
+    accentColor: '#4ade80',
+  },
+];
+
+const categoryBadge: Record<string, string> = {
   Lutron:      'background:#ede9fe;color:#7c3aed;',
   Solar:       'background:#fef3c7;color:#b45309;',
   Battery:     'background:#dbeafe;color:#0369a1;',
@@ -48,22 +202,41 @@ const categoryColors: Record<string, string> = {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-      ">Project Gallery</h1>
+      ">Project Showcase</h1>
       <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
-        Real installs, real homes. Every project is permitted, inspected, and done right.
+        Real installs, real specs, real outcomes. Every project permitted, inspected, and done right.
       </p>
     </div>
   </div>
+
+  <!-- Stats bar -->
+  <section id="stats-bar" style="background:#1c1e21;border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="stats-grid">
+        {stats.map(s => (
+          <div style="display:flex;flex-direction:column;align-items:center;padding:28px 16px;gap:8px;text-align:center;">
+            <div style={`width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;`}>
+              <iconify-icon icon={s.icon} width="20" style={`color:${s.color};`}></iconify-icon>
+            </div>
+            <div
+              class="stat-count"
+              data-target={s.value}
+              data-suffix={s.suffix}
+              style="font-size:1.875rem;font-weight:800;color:white;letter-spacing:-0.5px;line-height:1;"
+            >0</div>
+            <div style="font-size:0.75rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- Filter bar -->
   <div style="background:white;border-bottom:1px solid #e8edf0;position:sticky;top:72px;z-index:30;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div style="display:flex;gap:8px;padding:12px 0;overflow-x:auto;" id="filter-bar">
         {categories.map((cat, i) => (
-          <button
-            data-filter={cat}
-            class:list={['filter-btn', i === 0 && 'filter-active']}
-          >
+          <button data-filter={cat} class:list={['filter-btn', i === 0 && 'filter-active']}>
             {cat}
           </button>
         ))}
@@ -71,39 +244,73 @@ const categoryColors: Record<string, string> = {
     </div>
   </div>
 
-  <!-- Masonry grid -->
+  <!-- Project showcase -->
   <section style="background:#f2f4f9;padding:48px 0 72px;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div style="columns:1;gap:20px;" class="gallery-columns" id="gallery-grid">
+      <div id="gallery-grid" style="display:flex;flex-direction:column;gap:20px;">
+
         {projects.map(p => (
-          <div
-            data-category={p.category}
-            class="gallery-item"
-            style="break-inside:avoid;margin-bottom:20px;border-radius:24px;overflow:hidden;background:white;border:1px solid #e8edf0;transition:box-shadow 0.2s,transform 0.2s;"
-          >
-            <!-- Image area -->
-            <div
-              style={`
-                width:100%;
-                ${p.aspect === 'tall' ? 'aspect-ratio:3/4;' : p.aspect === 'wide' ? 'aspect-ratio:16/9;' : 'aspect-ratio:1/1;'}
-                background:${p.gradient};
-                display:flex;align-items:center;justify-content:center;
-                position:relative;overflow:hidden;
-              `}
-            >
-              <div style={`position:absolute;top:12px;left:12px;padding:4px 12px;border-radius:32px;font-size:11px;font-weight:700;${categoryColors[p.category]}`}>
-                {p.category}
-              </div>
-              <div style={`width:72px;height:72px;border-radius:64px;background:${p.iconBg};display:flex;align-items:center;justify-content:center;`}>
-                <iconify-icon icon={p.icon} width="36" style={`color:${p.iconColor};`}></iconify-icon>
+          <div data-category={p.category} class="gallery-item project-card">
+
+            <!-- Left: visual panel -->
+            <div class="project-graphic" style={`background:${p.gradient};`}>
+              <iconify-icon icon={p.icon} width="56" style={`color:${p.accentColor};filter:drop-shadow(0 0 24px ${p.accentColor}55);`}></iconify-icon>
+
+              <!-- Stat badge -->
+              <div style="width:100%;padding:0 20px 20px;">
+                <div style="background:rgba(0,0,0,0.25);border-radius:12px;padding:12px 14px;backdrop-filter:blur(4px);">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;">
+                    <span style={`font-size:1.125rem;font-weight:800;color:${p.accentColor};letter-spacing:-0.3px;`}>{p.statValue}</span>
+                    <span style="font-size:0.6875rem;font-weight:600;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;">{p.statLabel}</span>
+                  </div>
+                  <div style="height:4px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;">
+                    <div
+                      class="fill-bar"
+                      style={`height:100%;width:0;border-radius:2px;background:${p.accentColor};transition:width 1.1s cubic-bezier(0.16,1,0.3,1);--fill:${p.statFill}%;`}
+                    ></div>
+                  </div>
+                </div>
               </div>
             </div>
-            <!-- Caption -->
-            <div style="padding:16px 18px 18px;">
-              <h3 style="font-size:0.9375rem;font-weight:700;color:#0c0c0c;margin:0 0 4px;">{p.title}</h3>
-              <p style={`font-size:0.8125rem;font-weight:700;margin:0 0 6px;${p.iconColor?`color:${p.iconColor};`:''}`}>{p.location}</p>
-              <p style="font-size:0.8125rem;color:#8792a2;line-height:1.5;margin:0;">{p.desc}</p>
+
+            <!-- Right: content -->
+            <div class="project-content">
+              <!-- Category + location -->
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+                <span style={`padding:3px 11px;border-radius:32px;font-size:11px;font-weight:700;${categoryBadge[p.category]}`}>{p.category}</span>
+                <span style="font-size:0.8125rem;color:#8792a2;font-weight:600;display:inline-flex;align-items:center;gap:3px;">
+                  <iconify-icon icon="mdi:map-marker" width="13" style="color:#16b84a;"></iconify-icon>{p.location}
+                </span>
+              </div>
+
+              <!-- Headline -->
+              <h2 class="project-headline">{p.headline}</h2>
+
+              <!-- Spec grid -->
+              <div class="spec-grid">
+                {p.specs.map(s => (
+                  <div style="background:#f8f9fb;border-radius:10px;padding:10px 12px;border:1px solid #e8edf0;">
+                    <p style="font-size:0.625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#8792a2;margin:0 0 3px;">{s.label}</p>
+                    <p style="font-size:0.8125rem;font-weight:700;color:#0c0c0c;margin:0;line-height:1.35;">{s.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Outcome -->
+              <div style="display:flex;align-items:flex-start;gap:8px;margin-top:14px;padding:10px 14px;background:#f0fdf4;border-radius:12px;border:1px solid #bbf7d0;">
+                <iconify-icon icon="mdi:check-circle" width="16" style="color:#16b84a;flex-shrink:0;margin-top:1px;"></iconify-icon>
+                <p style="font-size:0.8125rem;color:#15803d;font-weight:600;margin:0;line-height:1.5;">{p.outcome}</p>
+              </div>
+
+              <!-- Quote -->
+              {p.quote && (
+                <div style="margin-top:12px;padding:12px 16px;background:rgba(0,0,0,0.02);border-left:3px solid #e8edf0;border-radius:0 12px 12px 0;">
+                  <p style="font-size:0.8125rem;color:#4f606e;font-style:italic;line-height:1.65;margin:0 0 6px;">"{p.quote}"</p>
+                  <p style="font-size:0.75rem;font-weight:700;color:#8792a2;margin:0;">— {p.quoteAuthor}</p>
+                </div>
+              )}
             </div>
+
           </div>
         ))}
       </div>
@@ -143,12 +350,86 @@ const categoryColors: Record<string, string> = {
 </Layout>
 
 <style>
-  @media (min-width: 640px)  { .gallery-columns { columns: 2 !important; } }
-  @media (min-width: 1024px) { .gallery-columns { columns: 3 !important; } }
-  .gallery-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
+  /* Stats grid */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stats-grid > div + div {
+    border-left: 1px solid rgba(255,255,255,0.06);
+  }
+  @media (max-width: 640px) {
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid > div:nth-child(3) { border-left: none; }
+    .stats-grid > div:nth-child(3),
+    .stats-grid > div:nth-child(4) { border-top: 1px solid rgba(255,255,255,0.06); }
+  }
+
+  /* Project cards */
+  .project-card {
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 24px;
+    border: 1px solid #e8edf0;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .project-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Graphic panel */
+  .project-graphic {
+    width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 36px;
+    min-height: 240px;
+  }
+
+  /* Content panel */
+  .project-content {
+    flex: 1;
+    padding: 24px 28px;
+    min-width: 0;
+  }
+
+  /* Headline */
+  .project-headline {
+    font-size: 1.1875rem;
+    font-weight: 800;
+    color: #0c0c0c;
+    margin: 0 0 14px;
+    letter-spacing: -0.3px;
+    line-height: 1.25;
+  }
+
+  /* Spec grid */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  /* Page header responsive */
   @media (max-width: 768px) { .page-header { padding: 88px 0 40px !important; } }
   @media (max-width: 480px) { .page-header { padding: 80px 0 32px !important; } }
 
+  /* Mobile: stack card vertically */
+  @media (max-width: 640px) {
+    .project-card { flex-direction: column; }
+    .project-graphic { width: 100%; min-height: 180px; padding-top: 28px; }
+    .project-content { padding: 20px; }
+    .project-headline { font-size: 1rem; }
+  }
+
+  /* Filter buttons */
   .filter-btn {
     flex-shrink: 0;
     padding: 6px 16px;
@@ -169,6 +450,7 @@ const categoryColors: Record<string, string> = {
 </style>
 
 <script>
+  // ── Filter ──────────────────────────────────────────────────────────
   const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
   const items   = document.querySelectorAll<HTMLElement>('.gallery-item');
   const empty   = document.getElementById('empty-state');
@@ -177,19 +459,54 @@ const categoryColors: Record<string, string> = {
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
-
       buttons.forEach(b => b.classList.remove('filter-active'));
       btn.classList.add('filter-active');
-
       let visible = 0;
       items.forEach(item => {
         const show = filter === 'All' || item.dataset.category === filter;
         item.style.display = show ? '' : 'none';
         if (show) visible++;
       });
-
       if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
       if (grid)  grid.style.display  = visible === 0 ? 'none'  : '';
     });
   });
+
+  // ── Stat fill bars ───────────────────────────────────────────────────
+  const fillBars = document.querySelectorAll<HTMLElement>('.fill-bar');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target as HTMLElement;
+        el.style.width = el.style.getPropertyValue('--fill') || '0%';
+        barObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+  fillBars.forEach(bar => barObserver.observe(bar));
+
+  // ── Count-up stats ───────────────────────────────────────────────────
+  const counters = document.querySelectorAll<HTMLElement>('.stat-count');
+  const countObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target as HTMLElement;
+      const target = parseInt(el.dataset.target || '0', 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+      const update = (now: number) => {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(target * eased);
+        el.textContent = current.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+        else el.textContent = target.toLocaleString() + suffix;
+      };
+      requestAnimationFrame(update);
+      countObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => countObserver.observe(c));
 </script>
