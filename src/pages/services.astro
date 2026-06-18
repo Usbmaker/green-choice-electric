@@ -68,6 +68,29 @@ const services = [
     flip: false,
   },
   {
+    id: 'landscape',
+    badge: 'Landscape Lighting',
+    badgeColor: '#15803d',
+    badgeBg: '#dcfce7',
+    icon: 'mdi:outdoor-lamp',
+    iconColor: '#15803d',
+    iconBg: '#dcfce7',
+    title: 'Low-Voltage Landscape Lighting',
+    intro: "La Jolla's coastal landscapes deserve more than functional lighting — they deserve design. A professionally installed low-voltage system transforms your property after dark, drawing out architectural details, illuminating pathways, and creating the kind of warm, layered ambiance that makes a home feel intentional. We design and install custom 12V systems built for the marine environment, with fixtures and layouts tailored to your property's specific features.",
+    features: [
+      "Custom fixture layout designed around your property's architecture and planting",
+      'Path and step lighting — safe, beautiful walkways, entries, and driveways',
+      'Uplighting for trees, hedges, columns, and statement architectural features',
+      'Hardscape accent lighting — retaining walls, outdoor kitchens, water features',
+      '12V LED fixtures — a fraction of the energy cost of standard outdoor lighting',
+      'Smart transformer controls — automatic dusk-to-dawn, timers, and app scheduling',
+      "Marine-grade fixtures rated for La Jolla's coastal salt-air environment",
+    ],
+    video: '',
+    image: 'https://www.voltlighting.com/media/wysiwyg/MAIN-HOMEPAGE-HERO-BANNER_new_v2.jpg',
+    flip: false,
+  },
+  {
     id: 'residential',
     badge: 'Residential',
     badgeColor: '#16b84a',
@@ -132,7 +155,7 @@ const services = [
           { label: 'Smart Panel',         href: '#smart-panel' },
           { label: 'Battery Storage',     href: '#battery' },
           { label: 'Residential',         href: '#residential' },
-          { label: 'Landscape Lighting',  href: '#residential' },
+          { label: 'Landscape Lighting',  href: '#landscape' },
         ].map(item => (
           <a href={item.href} style="
             display:inline-flex;align-items:center;white-space:nowrap;
