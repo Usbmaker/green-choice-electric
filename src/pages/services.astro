@@ -123,6 +123,30 @@ const services = [
     </div>
   </div>
 
+  <!-- Quick-jump anchor nav -->
+  <nav style="background:white;border-bottom:1px solid #e8edf0;position:sticky;top:72px;z-index:40;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none;" class="svc-nav">
+        {[
+          { label: 'Smart Lighting',      href: '#lutron' },
+          { label: 'Smart Panel',         href: '#smart-panel' },
+          { label: 'Battery Storage',     href: '#battery' },
+          { label: 'Residential',         href: '#residential' },
+          { label: 'Landscape Lighting',  href: '#residential' },
+        ].map(item => (
+          <a href={item.href} style="
+            display:inline-flex;align-items:center;white-space:nowrap;
+            padding:6px 16px;border-radius:32px;
+            font-size:0.875rem;font-weight:600;
+            color:#4f606e;text-decoration:none;
+            border:1px solid #e8edf0;background:#f2f4f9;
+            transition:background 0.15s,color 0.15s;flex-shrink:0;
+          " class="svc-nav-pill">{item.label}</a>
+        ))}
+      </div>
+    </div>
+  </nav>
+
   <!-- Service sections -->
   {services.map((s, i) => (
     <section
@@ -239,6 +263,8 @@ const services = [
 </Layout>
 
 <style>
+  .svc-nav::-webkit-scrollbar { display: none; }
+  .svc-nav-pill:hover { background: #dcfce7 !important; color: #15803d !important; border-color: #bbf7d0 !important; }
   @media (max-width: 1024px) {
     .svc-grid    { gap: 40px !important; }
   }
