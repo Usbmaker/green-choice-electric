@@ -86,6 +86,7 @@ const services = [
       'Dedicated circuits for home office, theater, gym',
     ],
     video: '',
+    image: '/residential-hero.jpg',
     flip: true,
   },
 ];
@@ -172,6 +173,15 @@ const services = [
                   allowfullscreen
                   style="width:100%;aspect-ratio:16/9;display:block;border:none;"
                 ></iframe>
+              </div>
+            ) : s.image ? (
+              <div style="border-radius:24px;overflow:hidden;box-shadow:0 24px 48px rgba(0,0,0,0.15);">
+                <img
+                  src={s.image}
+                  alt={s.title}
+                  style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;"
+                  loading="lazy"
+                />
               </div>
             ) : (
               <div style={`
