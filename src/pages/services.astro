@@ -238,8 +238,11 @@ const services = [
 </Layout>
 
 <style>
+  @media (max-width: 1024px) {
+    .svc-grid    { gap: 40px !important; }
+  }
   @media (max-width: 768px) {
-    .svc-grid    { grid-template-columns: 1fr !important; gap: 40px !important; }
+    .svc-grid    { grid-template-columns: 1fr !important; gap: 32px !important; }
     .svc-grid > div[style*="order:2"] { order: 1 !important; }
     .svc-grid > div[style*="order:1"] { order: 2 !important; }
     .page-header { padding: 88px 0 40px !important; }

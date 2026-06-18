@@ -55,8 +55,10 @@ const hours = [
         <div class="form-card" style="background:white;border-radius:24px;padding:36px;border:1px solid #e8edf0;">
           <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.3px;color:#0c0c0c;margin-bottom:28px;">Tell us about your project</h2>
 
-          <form name="estimate" method="POST" data-netlify="true" style="display:flex;flex-direction:column;gap:20px;">
-            <input type="hidden" name="form-name" value="estimate" />
+          <form action="https://formsubmit.co/info@greenchoiceelectric.com" method="POST" style="display:flex;flex-direction:column;gap:20px;">
+            <input type="hidden" name="_subject" value="New estimate request — Green Choice Electric" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://usbmaker.github.io/green-choice-electric/contact" />
 
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="form-row">
               <div>

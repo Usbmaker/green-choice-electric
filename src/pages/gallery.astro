@@ -62,13 +62,7 @@ const categoryColors: Record<string, string> = {
         {categories.map((cat, i) => (
           <button
             data-filter={cat}
-            style={`
-              flex-shrink:0;padding:6px 16px;border-radius:32px;font-size:0.875rem;font-weight:700;
-              border:2px solid;cursor:pointer;transition:all 0.15s;
-              ${i === 0
-                ? 'background:#0d8c32;color:white;border-color:#0d8c32;'
-                : 'background:white;color:#4f606e;border-color:#e8edf0;'}
-            `}
+            class:list={['filter-btn', i === 0 && 'filter-active']}
           >
             {cat}
           </button>
@@ -154,6 +148,24 @@ const categoryColors: Record<string, string> = {
   .gallery-item:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-2px); }
   @media (max-width: 768px) { .page-header { padding: 88px 0 40px !important; } }
   @media (max-width: 480px) { .page-header { padding: 80px 0 32px !important; } }
+
+  .filter-btn {
+    flex-shrink: 0;
+    padding: 6px 16px;
+    border-radius: 32px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border: 2px solid #e8edf0;
+    cursor: pointer;
+    transition: all 0.15s;
+    background: white;
+    color: #4f606e;
+  }
+  .filter-btn.filter-active {
+    background: #0d8c32;
+    color: white;
+    border-color: #0d8c32;
+  }
 </style>
 
 <script>
@@ -166,15 +178,13 @@ const categoryColors: Record<string, string> = {
     btn.addEventListener('click', () => {
       const filter = btn.dataset.filter;
 
-      buttons.forEach(b => {
-        b.style.cssText = b.style.cssText.replace(/background:[^;]+;color:[^;]+;border-color:[^;]+;/, 'background:white;color:#4f606e;border-color:#e8edf0;');
-      });
-      btn.style.cssText = btn.style.cssText.replace('background:white;color:#4f606e;border-color:#e8edf0;', 'background:#0d8c32;color:white;border-color:#0d8c32;');
+      buttons.forEach(b => b.classList.remove('filter-active'));
+      btn.classList.add('filter-active');
 
       let visible = 0;
       items.forEach(item => {
         const show = filter === 'All' || item.dataset.category === filter;
-        (item as HTMLElement).style.display = show ? '' : 'none';
+        item.style.display = show ? '' : 'none';
         if (show) visible++;
       });
 

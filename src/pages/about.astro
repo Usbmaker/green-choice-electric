@@ -136,9 +136,11 @@ const values = [
 </Layout>
 
 <style>
+  @media (max-width: 1024px) {
+    .values-grid { grid-template-columns: 1fr 1fr !important; }
+  }
   @media (max-width: 768px) {
     .about-grid  { grid-template-columns: 1fr !important; gap: 40px !important; }
-    .values-grid { grid-template-columns: 1fr 1fr !important; }
     .page-header { padding: 88px 0 40px !important; }
   }
   @media (max-width: 640px) {
