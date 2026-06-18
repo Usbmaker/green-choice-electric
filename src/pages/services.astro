@@ -68,29 +68,6 @@ const services = [
     flip: false,
   },
   {
-    id: 'landscape',
-    badge: 'Landscape Lighting',
-    badgeColor: '#15803d',
-    badgeBg: '#dcfce7',
-    icon: 'mdi:outdoor-lamp',
-    iconColor: '#15803d',
-    iconBg: '#dcfce7',
-    title: 'Low-Voltage Landscape Lighting',
-    intro: "La Jolla's coastal landscapes deserve more than functional lighting — they deserve design. A professionally installed low-voltage system transforms your property after dark, drawing out architectural details, illuminating pathways, and creating the kind of warm, layered ambiance that makes a home feel intentional. We design and install custom 12V systems built for the marine environment, with fixtures and layouts tailored to your property's specific features.",
-    features: [
-      "Custom fixture layout designed around your property's architecture and planting",
-      'Path and step lighting — safe, beautiful walkways, entries, and driveways',
-      'Uplighting for trees, hedges, columns, and statement architectural features',
-      'Hardscape accent lighting — retaining walls, outdoor kitchens, water features',
-      '12V LED fixtures — a fraction of the energy cost of standard outdoor lighting',
-      'Smart transformer controls — automatic dusk-to-dawn, timers, and app scheduling',
-      "Marine-grade fixtures rated for La Jolla's coastal salt-air environment",
-    ],
-    video: '',
-    image: 'https://www.voltlighting.com/media/wysiwyg/MAIN-HOMEPAGE-HERO-BANNER_new_v2.jpg',
-    flip: false,
-  },
-  {
     id: 'residential',
     badge: 'Residential',
     badgeColor: '#16b84a',
@@ -111,6 +88,29 @@ const services = [
     ],
     video: '',
     image: '/residential-hero.jpg',
+    flip: true,
+  },
+  {
+    id: 'landscape',
+    badge: 'Landscape Lighting',
+    badgeColor: '#15803d',
+    badgeBg: '#dcfce7',
+    icon: 'mdi:outdoor-lamp',
+    iconColor: '#15803d',
+    iconBg: '#dcfce7',
+    title: 'Low-Voltage Landscape Lighting',
+    intro: "La Jolla's coastal landscapes deserve more than functional lighting — they deserve design. A professionally installed low-voltage system transforms your property after dark, drawing out architectural details, illuminating pathways, and creating the kind of warm, layered ambiance that makes a home feel intentional. We design and install custom 12V systems built for the marine environment, with fixtures and layouts tailored to your property's specific features.",
+    features: [
+      "Custom fixture layout designed around your property's architecture and planting",
+      'Path and step lighting — safe, beautiful walkways, entries, and driveways',
+      'Uplighting for trees, hedges, columns, and statement architectural features',
+      'Hardscape accent lighting — retaining walls, outdoor kitchens, water features',
+      '12V LED fixtures — a fraction of the energy cost of standard outdoor lighting',
+      'Smart transformer controls — automatic dusk-to-dawn, timers, and app scheduling',
+      "Marine-grade fixtures rated for La Jolla's coastal salt-air environment",
+    ],
+    video: '',
+    image: 'https://www.voltlighting.com/media/wysiwyg/MAIN-HOMEPAGE-HERO-BANNER_new_v2.jpg',
     flip: true,
   },
 ];
@@ -258,6 +258,50 @@ const services = [
     </section>
   ))}
 
+  <!-- Landscape extras: Transformers · Home Audio · Color Lights -->
+  <section style="background:#f0f0f3;padding:72px 0;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div style="text-align:center;margin-bottom:48px;">
+        <h2 class="section-h2" style="font-size:2rem;font-weight:800;letter-spacing:-0.5px;color:#0c0c0c;line-height:1.2;max-width:700px;margin:0 auto;">
+          Transform Your Outdoor Spaces and Bring Ambience and Security to Your Outdoor Living.
+        </h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="extras-grid">
+        {[
+          {
+            icon: 'mdi:current-ac',
+            color: '#15803d',
+            bg: '#dcfce7',
+            title: 'Low Voltage Transformers',
+            body: 'Designed for consistent performance and longevity, the transformers we install are the best on the market for any low-voltage outdoor lighting system.',
+          },
+          {
+            icon: 'mdi:speaker-wireless',
+            color: '#0369a1',
+            bg: '#dbeafe',
+            title: 'Home Audio',
+            body: "Whether you're relaxing or hosting lively backyard gatherings, exterior audio enhances every moment with immersive, weather-resistant sound.",
+          },
+          {
+            icon: 'mdi:led-strip-variant',
+            color: '#7c3aed',
+            bg: '#ede9fe',
+            title: 'Color Landscape Lights',
+            body: 'Enhance your outdoor spaces with color-changing LED landscape lights — versatile, durable technology that provides limitless customization possibilities.',
+          },
+        ].map(card => (
+          <div style="background:white;border-radius:24px;padding:28px;border:1px solid #e8edf0;">
+            <div style={`width:56px;height:56px;border-radius:16px;background:${card.bg};display:flex;align-items:center;justify-content:center;margin-bottom:16px;`}>
+              <iconify-icon icon={card.icon} width="28" style={`color:${card.color};`}></iconify-icon>
+            </div>
+            <h3 style="font-size:1.125rem;font-weight:700;color:#0c0c0c;margin:0 0 10px;">{card.title}</h3>
+            <p style="font-size:0.9375rem;color:#4f606e;line-height:1.7;margin:0;">{card.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- Bottom CTA -->
   <section style="
     background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
@@ -288,6 +332,7 @@ const services = [
 <style>
   .svc-nav::-webkit-scrollbar { display: none; }
   .svc-nav-pill:hover { background: #dcfce7 !important; color: #15803d !important; border-color: #bbf7d0 !important; }
+  @media (max-width: 768px) { .extras-grid { grid-template-columns: 1fr !important; } }
   @media (max-width: 1024px) {
     .svc-grid    { gap: 40px !important; }
   }
