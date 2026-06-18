@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Terms & Conditions" description="Terms and conditions for Green Choice electrical services in La Jolla and coastal San Diego.">
+  <Header />
+
+  <div style="
+    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    padding: 120px 0 56px;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  " class="page-header">
+    <div class="max-w-3xl mx-auto px-4">
+      <h1 style="font-size:2.5rem;font-weight:800;letter-spacing:-1px;color:white;margin-bottom:8px;">Terms &amp; Conditions</h1>
+      <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;">Last updated: June 2025 &nbsp;·&nbsp; CA C-10 License #947011</p>
+    </div>
+  </div>
+
+  <section style="background:#f0f0f3;padding:72px 0;">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div style="background:white;border-radius:24px;padding:40px 44px;border:1px solid #e8edf0;" class="prose-block">
+
+        <h2>1. Estimates</h2>
+        <p>Written estimates are valid for 30 days from the date of issue. Estimates are based on conditions observed at the time of assessment. If additional work or materials are discovered once work begins, you will be notified immediately and a change order will be issued before proceeding. Work does not continue beyond the original scope without written or verbal authorization.</p>
+
+        <h2>2. Scheduling &amp; Access</h2>
+        <p>Scheduled appointments are confirmed by phone or email. Please ensure a responsible adult (18+) is present for the duration of work. If we are unable to access the property at the scheduled time, a rescheduling fee may apply for jobs requiring significant travel or setup time.</p>
+
+        <h2>3. Payment Terms</h2>
+        <p>Payment is due upon completion of work unless otherwise agreed in writing. For larger projects, a deposit of up to 50% may be required prior to scheduling material procurement. We accept cash, check, and major credit cards. A 3% convenience fee applies to credit card payments on invoices over $500.</p>
+
+        <h2>4. Permits &amp; Inspections</h2>
+        <p>Green Choice obtains all required electrical permits for permitted work. Permit fees are billed at cost and reflected on your invoice. Inspection scheduling is coordinated by Green Choice; the property owner is responsible for being available or designating an adult representative for the inspection.</p>
+
+        <h2>5. Warranty</h2>
+        <p>All labor performed by Green Choice is warranted against defects in workmanship for a period of one (1) year from the date of job completion. Manufacturer warranties on fixtures, panels, and equipment are passed through to the customer. Warranty does not cover damage caused by misuse, alteration by others, acts of nature, or conditions unrelated to our work.</p>
+
+        <h2>6. Liability</h2>
+        <p>Green Choice is fully licensed (CA C-10 #947011), bonded, and insured. Our liability is limited to the value of the work performed. We are not responsible for pre-existing conditions, concealed wiring deficiencies, or damage caused by products not supplied by Green Choice. Customers are responsible for removing personal property from work areas prior to scheduled service.</p>
+
+        <h2>7. Cancellations</h2>
+        <p>We ask for at least 24 hours' notice to cancel or reschedule a confirmed appointment. Cancellations with less than 24 hours' notice on jobs requiring materials procurement or significant travel may be subject to a restocking or trip fee.</p>
+
+        <h2>8. Dispute Resolution</h2>
+        <p>In the event of a dispute, we ask that you contact us directly first — we're committed to making things right. Any unresolved disputes shall be governed by the laws of the State of California, with jurisdiction in San Diego County.</p>
+
+        <h2>9. Contact</h2>
+        <p>Questions about these terms? Reach us before, during, or after your project:</p>
+        <ul>
+          <li>Phone: <a href="tel:+18588697440">(858) 869-7440</a></li>
+          <li>Email: <a href="mailto:GreenChoiceSeth@gmail.com">GreenChoiceSeth@gmail.com</a></li>
+          <li>Address: La Jolla, CA 92037</li>
+        </ul>
+
+      </div>
+
+      <div style="margin-top:32px;text-align:center;">
+        <a href="/contact" style="
+          display:inline-flex;align-items:center;gap:8px;
+          background-color:#0d8c32;color:white;
+          font-weight:700;font-size:0.9375rem;text-transform:uppercase;
+          padding:12px 28px;border-radius:32px;text-decoration:none;
+        ">
+          Get an estimate
+          <iconify-icon icon="mdi:arrow-right" width="18"></iconify-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose-block h2 { font-size:1.25rem;font-weight:800;color:#0c0c0c;margin:28px 0 10px;letter-spacing:-0.2px; }
+  .prose-block h2:first-child { margin-top:0; }
+  .prose-block p { font-size:0.9375rem;color:#4f606e;line-height:1.8;margin:0 0 4px; }
+  .prose-block ul { padding-left:20px;font-size:0.9375rem;color:#4f606e;line-height:2;margin:8px 0 0; }
+  .prose-block a { color:#0d8c32;text-decoration:none; }
+  .prose-block a:hover { text-decoration:underline; }
+  @media (max-width:640px) {
+    .prose-block { padding:24px 20px !important; }
+    .page-header  { padding:88px 0 40px !important; }
+  }
+</style>

@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const contactMethods = [
   { icon: 'mdi:phone',      label: 'Phone',    value: '(858) 869-7440',               href: 'tel:+18588697440',                      sub: 'Mon–Fri 7am–6pm · Sat 8am–2pm',      color: '#16b84a', bg: '#dcfce7' },
-  { icon: 'mdi:email',      label: 'Email',    value: 'info@greenchoiceelectric.com',  href: 'mailto:info@greenchoiceelectric.com',    sub: 'We respond within a few hours',       color: '#0369a1', bg: '#dbeafe' },
+  { icon: 'mdi:email',      label: 'Email',    value: 'GreenChoiceSeth@gmail.com',  href: 'mailto:GreenChoiceSeth@gmail.com',    sub: 'We respond within a few hours',       color: '#0369a1', bg: '#dbeafe' },
   { icon: 'mdi:map-marker', label: 'Based In', value: 'La Jolla, CA 92037',            href: null,                                     sub: 'Serving all of coastal San Diego',    color: '#7c3aed', bg: '#ede9fe' },
 ];
 
@@ -16,7 +16,7 @@ const hours = [
 ];
 ---
 
-<Layout title="Contact" description="Request a free estimate from Green Choice Electric — La Jolla's licensed electrician for smart lighting, solar, battery storage, and residential electrical.">
+<Layout title="Contact" description="Request an estimate from Green Choice — La Jolla's licensed electrician for smart lighting, solar, battery storage, and residential electrical.">
   <Header />
 
   <!-- Page header -->
@@ -39,7 +39,7 @@ const hours = [
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-      ">Request a Free Estimate</h1>
+      ">Get an Estimate</h1>
       <p style="font-size:1.125rem;color:rgba(255,255,255,0.85);line-height:1.75;">
         No pressure, no obligation. Tell us about your project and we'll get back to you same day.
       </p>
@@ -55,8 +55,8 @@ const hours = [
         <div class="form-card" style="background:white;border-radius:24px;padding:36px;border:1px solid #e8edf0;">
           <h2 style="font-size:1.5rem;font-weight:800;letter-spacing:-0.3px;color:#0c0c0c;margin-bottom:28px;">Tell us about your project</h2>
 
-          <form action="https://formsubmit.co/info@greenchoiceelectric.com" method="POST" style="display:flex;flex-direction:column;gap:20px;">
-            <input type="hidden" name="_subject" value="New estimate request — Green Choice Electric" />
+          <form action="https://formsubmit.co/GreenChoiceSeth@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:20px;">
+            <input type="hidden" name="_subject" value="New estimate request — Green Choice" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value="https://usbmaker.github.io/green-choice-electric/contact" />
 
