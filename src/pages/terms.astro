@@ -8,13 +8,15 @@ import { withBase } from '../lib/url.js';
 <Layout title="Terms & Conditions" description="Terms and conditions for Green Choice electrical services in La Jolla and coastal San Diego.">
   <Header />
 
+  <main id="main-content" tabindex="-1">
+
   <div style="
     background: linear-gradient(340deg, hsl(145,80%,28%) 0%, hsl(162,82%,28%) 50%, hsl(175,85%,28%) 100%);
     padding: 120px 0 56px;
     text-align: center;
     color: white;
     border-bottom: 1px solid rgba(0,0,0,0.1);
-  " class="page-header" id="main-content" tabindex="-1">
+  " class="page-header">
     <div class="max-w-3xl mx-auto px-4">
       <h1 style="font-size:2.5rem;font-weight:800;letter-spacing:-1px;color:white;margin-bottom:8px;">Terms &amp; Conditions</h1>
       <p style="color:rgba(255,255,255,0.7);font-size:0.9375rem;">Last updated: June 2025 &nbsp;·&nbsp; CA C-10 License #947011</p>
@@ -62,7 +64,7 @@ import { withBase } from '../lib/url.js';
       <div style="margin-top:32px;text-align:center;">
         <a href={withBase('/contact')} style="
           display:inline-flex;align-items:center;gap:8px;
-          background-color:#0e813e;color:white;
+          background-color:#0e7c3c;color:white;
           font-weight:700;font-size:0.9375rem;text-transform:uppercase;
           padding:12px 28px;border-radius:32px;text-decoration:none;
         ">
@@ -73,6 +75,8 @@ import { withBase } from '../lib/url.js';
     </div>
   </section>
 
+  </main>
+
   <Footer />
 </Layout>
 
@@ -81,7 +85,7 @@ import { withBase } from '../lib/url.js';
   .prose-block h2:first-child { margin-top:0; }
   .prose-block p { font-size:0.9375rem;color:#4f606e;line-height:1.8;margin:0 0 4px; }
   .prose-block ul { padding-left:20px;font-size:0.9375rem;color:#4f606e;line-height:2;margin:8px 0 0; }
-  .prose-block a { color:#0e813e;text-decoration:none; }
+  .prose-block a { color:#0e7c3c;text-decoration:none; }
   .prose-block a:hover { text-decoration:underline; }
   @media (max-width:640px) {
     .prose-block { padding:24px 20px !important; }
