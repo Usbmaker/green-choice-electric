@@ -25,8 +25,30 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Sans:ital,wdth,wght@0,99,400..700;1,99,400..700&display=swap" rel="stylesheet" />
     <!-- Iconify for HA-style icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@2/dist/iconify-icon.min.js" is:inline></script>
+    <style>
+      .skip-link {
+        position: absolute;
+        left: 8px;
+        top: -48px;
+        background: #0c0c0c;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.9375rem;
+        text-decoration: none;
+        z-index: 9999;
+        transition: top 0.15s ease;
+      }
+      .skip-link:focus {
+        top: 8px;
+        outline: 3px solid #0e813e;
+        outline-offset: 2px;
+      }
+    </style>
   </head>
   <body class={`font-sans antialiased text-ha-text-dark bg-white ${bodyClass}`}>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <slot />
   </body>
 </html>
