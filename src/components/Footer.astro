@@ -1,19 +1,21 @@
 ---
+import { withBase } from '../lib/url.js';
+
 const services = [
-  { label: 'Lutron Smart Lighting', href: '/services#lutron' },
-  { label: 'Savant Smart Panel',     href: '/services#smart-panel' },
-  { label: 'Battery Storage',       href: '/services#battery' },
-  { label: 'Residential Electrical',href: '/services#residential' },
-  { label: 'EV Charger Installation',href: '/services#residential' },
-  { label: 'Landscape Lighting',     href: '/services#landscape' },
+  { label: 'Lutron Smart Lighting', href: withBase('/services#lutron') },
+  { label: 'Savant Smart Panel',     href: withBase('/services#smart-panel') },
+  { label: 'Battery Storage',       href: withBase('/services#battery') },
+  { label: 'Residential Electrical',href: withBase('/services#residential') },
+  { label: 'EV Charger Installation',href: withBase('/services#residential') },
+  { label: 'Landscape Lighting',     href: withBase('/services#landscape') },
 ];
 const links = [
-  { label: 'About',   href: '/about' },
-  { label: 'Gallery', href: '/gallery' },
-  { label: 'Reviews', href: '/reviews' },
-  { label: 'Contact', href: '/contact' },
-  { label: 'Privacy', href: '/privacy' },
-  { label: 'Terms',   href: '/terms' },
+  { label: 'About',   href: withBase('/about') },
+  { label: 'Gallery', href: withBase('/gallery') },
+  { label: 'Reviews', href: withBase('/reviews') },
+  { label: 'Contact', href: withBase('/contact') },
+  { label: 'Privacy', href: withBase('/privacy') },
+  { label: 'Terms',   href: withBase('/terms') },
 ];
 const year = new Date().getFullYear();
 ---
@@ -24,7 +26,7 @@ const year = new Date().getFullYear();
 
       <!-- Brand -->
       <div>
-        <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
+        <a href={withBase('/')} style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;margin-bottom:16px;">
           <div style="
             width:32px;height:32px;border-radius:10px;
             background:linear-gradient(340deg,hsl(145,80%,38%) 0%,hsl(175,85%,38%) 100%);

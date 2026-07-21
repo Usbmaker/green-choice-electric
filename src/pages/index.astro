@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/url.js';
 ---
 
 <Layout title="Premium Electrical — La Jolla & Coastal San Diego">
@@ -65,7 +66,7 @@ import Footer from '../components/Footer.astro';
           <!-- Buttons — HA exact pattern -->
           <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:24px;">
             <a
-              href="/contact"
+              href={withBase('/contact')}
               class="hero-cta"
               style="
                 font-family: 'Figtree','Helvetica Neue',Arial,sans-serif;
@@ -88,7 +89,7 @@ import Footer from '../components/Footer.astro';
             </a>
             <div style="display:flex;flex-direction:column;gap:2px;">
               <a href="tel:+18588697440" style="color:rgba(255,255,255,0.9);font-size:1rem;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:32px;transition:background 0.15s;">(858) 869-7440</a>
-              <a href="/services" style="color:rgba(255,255,255,0.9);font-size:1rem;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:32px;transition:background 0.15s;">Browse our services</a>
+              <a href={withBase('/services')} style="color:rgba(255,255,255,0.9);font-size:1rem;font-weight:600;text-decoration:none;padding:8px 12px;border-radius:32px;transition:background 0.15s;">Browse our services</a>
             </div>
           </div>
 
@@ -209,7 +210,7 @@ import Footer from '../components/Footer.astro';
             bg: '#ede9fe',
             title: 'Lutron Smart Lighting',
             body: 'Certified Lutron® dealer. Homeworks QSX, RadioRA 3, and Caseta — whole-home scenes, motorized shades, and full smart home integration.',
-            href: '/services#lutron',
+            href: withBase('/services#lutron'),
           },
           {
             icon: 'mdi:home-lightning-bolt',
@@ -217,7 +218,7 @@ import Footer from '../components/Footer.astro';
             bg: '#f1f5f9',
             title: 'Savant Smart Panel',
             body: "Add per-circuit intelligence to your existing panel — live energy monitoring, remote on/off switching, and automated load-shedding. No panel replacement required.",
-            href: '/services#smart-panel',
+            href: withBase('/services#smart-panel'),
           },
           {
             icon: 'mdi:battery-charging-high',
@@ -225,7 +226,7 @@ import Footer from '../components/Footer.astro';
             bg: '#dbeafe',
             title: 'Battery Storage',
             body: 'Savant Power System — solar, battery, and EV as one intelligent platform. Also Tesla Powerwall 3 and Enphase IQ installed and programmed.',
-            href: '/services#battery',
+            href: withBase('/services#battery'),
           },
           {
             icon: 'mdi:lightning-bolt',
@@ -233,7 +234,7 @@ import Footer from '../components/Footer.astro';
             bg: '#dcfce7',
             title: 'Residential Electrical',
             body: 'Panel upgrades, EV chargers, recessed lighting, outlets, and everything in between. Fully permitted, inspected, done right.',
-            href: '/services#residential',
+            href: withBase('/services#residential'),
           },
           {
             icon: 'mdi:ev-plug-type2',
@@ -241,7 +242,7 @@ import Footer from '../components/Footer.astro';
             bg: '#ccfbf1',
             title: 'EV Charger Installation',
             body: 'Level 2 ChargePoint, Tesla Wall Connector, and more on a dedicated circuit — so you wake up to a full charge every morning.',
-            href: '/services#residential',
+            href: withBase('/services#residential'),
           },
           {
             icon: 'mdi:home-automation',
@@ -249,7 +250,7 @@ import Footer from '../components/Footer.astro';
             bg: '#fee2e2',
             title: 'Smart Home Integration',
             body: 'Lutron + solar + battery + EV as one cohesive system — controlled from a single app, optimized automatically.',
-            href: '/services',
+            href: withBase('/services'),
           },
         ].map(card => (
           <a href={card.href} class="feature-card" style="
@@ -358,7 +359,7 @@ import Footer from '../components/Footer.astro';
               </li>
             ))}
           </ul>
-          <a href="/services#lutron" style="
+          <a href={withBase('/services#lutron')} style="
             display:inline-flex;align-items:center;gap:6px;
             background-color:#0d8c32;color:white;
             font-weight:700;font-size:1rem;
@@ -405,7 +406,7 @@ import Footer from '../components/Footer.astro';
               </li>
             ))}
           </ul>
-          <a href="/services#battery" style="
+          <a href={withBase('/services#battery')} style="
             display:inline-flex;align-items:center;gap:6px;
             background-color:#0d8c32;color:white;
             font-weight:700;font-size:1rem;
@@ -547,7 +548,7 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <div style="text-align:center;margin-top:32px;">
-        <a href="/reviews" style="
+        <a href={withBase('/reviews')} style="
           display:inline-flex;align-items:center;gap:6px;
           color:#0d8c32;font-weight:700;font-size:1rem;
           text-decoration:none;padding:10px 20px;
@@ -601,7 +602,7 @@ import Footer from '../components/Footer.astro';
         Fast scheduling, same-day response. Call or request a quote online.
       </p>
       <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px;">
-        <a href="/contact" style="
+        <a href={withBase('/contact')} style="
           font-family:'Figtree','Helvetica Neue',Arial,sans-serif;
           background-color:#0d8c32;
           color:white;

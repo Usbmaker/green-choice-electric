@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/url.js';
 
 const services = [
   {
@@ -87,7 +88,7 @@ const services = [
       'Low-voltage landscape lighting',
     ],
     video: '',
-    image: '/residential-hero.jpg',
+    image: withBase('/residential-hero.jpg'),
     flip: true,
   },
   {
@@ -110,7 +111,7 @@ const services = [
       "Marine-grade fixtures rated for La Jolla's coastal salt-air environment",
     ],
     video: '',
-    image: '/landscape-lighting-hero.jpg',
+    image: withBase('/landscape-lighting-hero.jpg'),
     flip: true,
   },
 ];
@@ -198,7 +199,7 @@ const services = [
               ))}
             </ul>
 
-            <a href="/contact" style={`
+            <a href={withBase('/contact')} style={`
               display:inline-flex;align-items:center;gap:8px;
               background-color:#0d8c32;color:white;
               font-weight:700;font-size:0.9375rem;text-transform:uppercase;letter-spacing:0.04em;
@@ -314,7 +315,7 @@ const services = [
       <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;line-height:1.75;margin-bottom:28px;">
         We're happy to walk through your project, offer options, and give you a no-pressure estimate — at no charge.
       </p>
-      <a href="/contact" style="
+      <a href={withBase('/contact')} style="
         display:inline-flex;align-items:center;gap:8px;
         background-color:#0d8c32;color:white;
         font-weight:700;font-size:1rem;text-transform:uppercase;

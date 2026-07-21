@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/url.js';
 ---
 
 <Layout title="Terms & Conditions" description="Terms and conditions for Green Choice electrical services in La Jolla and coastal San Diego.">
@@ -59,7 +60,7 @@ import Footer from '../components/Footer.astro';
       </div>
 
       <div style="margin-top:32px;text-align:center;">
-        <a href="/contact" style="
+        <a href={withBase('/contact')} style="
           display:inline-flex;align-items:center;gap:8px;
           background-color:#0d8c32;color:white;
           font-weight:700;font-size:0.9375rem;text-transform:uppercase;

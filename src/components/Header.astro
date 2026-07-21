@@ -1,12 +1,13 @@
 ---
+import { withBase } from '../lib/url.js';
+
 const nav = [
-  { label: 'Services', href: '/services' },
-  { label: 'Gallery',  href: '/gallery' },
-  { label: 'Reviews',  href: '/reviews' },
-  { label: 'About',    href: '/about' },
+  { label: 'Services', href: withBase('/services') },
+  { label: 'Gallery',  href: withBase('/gallery') },
+  { label: 'Reviews',  href: withBase('/reviews') },
+  { label: 'About',    href: withBase('/about') },
 ];
 const currentPath = Astro.url.pathname;
-const isHome = currentPath === '/';
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -14,7 +15,7 @@ const isHome = currentPath === '/';
     <div class="flex items-center justify-between h-[72px]">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2.5 group">
+      <a href={withBase('/')} class="flex items-center gap-2.5 group">
         <div class="w-10 h-10 flex items-center justify-center rounded-xl shrink-0"
           style="background: linear-gradient(340deg, hsl(145,80%,40%) 0%, hsl(175,85%,38%) 100%);">
           <iconify-icon icon="mdi:lightning-bolt" width="22" style="color:white;"></iconify-icon>
@@ -38,7 +39,7 @@ const isHome = currentPath === '/';
           </a>
         ))}
         <a
-          href="/contact"
+          href={withBase('/contact')}
           class="ml-3 px-6 py-2.5 rounded-btn text-sm font-bold uppercase tracking-wide transition-all hover:opacity-90 header-cta"
           style="background-color:#0d8c32;color:#fff;"
         >
@@ -66,7 +67,7 @@ const isHome = currentPath === '/';
           {link.label}
         </a>
       ))}
-      <a href="/contact" class="block mt-2 px-4 py-3 text-sm font-bold uppercase text-white rounded-btn text-center"
+      <a href={withBase('/contact')} class="block mt-2 px-4 py-3 text-sm font-bold uppercase text-white rounded-btn text-center"
         style="background-color:#0d8c32;">Get an estimate</a>
     </div>
   </div>

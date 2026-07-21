@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { withBase } from '../lib/url.js';
 
 const categories = ['All', 'Lutron', 'Solar', 'Battery', 'Residential'];
 
@@ -334,7 +335,7 @@ const categoryBadge: Record<string, string> = {
       <p style="color:rgba(255,255,255,0.85);font-size:1.0625rem;line-height:1.75;margin-bottom:28px;">
         Get an estimate and see what Green Choice can do for your home.
       </p>
-      <a href="/contact" style="
+      <a href={withBase('/contact')} style="
         display:inline-flex;align-items:center;gap:8px;
         background-color:#0d8c32;color:white;
         font-weight:700;font-size:1rem;text-transform:uppercase;
