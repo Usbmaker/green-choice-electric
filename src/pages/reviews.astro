@@ -29,9 +29,11 @@ const stats = [
 <Layout title="Reviews" description="Read what La Jolla homeowners say about Green Choice — 5-star reviews for solar, Lutron smart lighting, battery storage, and residential electrical.">
   <Header />
 
+  <main id="main-content" tabindex="-1">
+
   <!-- Page header -->
   <div style="
-    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    background: linear-gradient(340deg, hsl(145,80%,28%) 0%, hsl(162,82%,28%) 50%, hsl(175,85%,28%) 100%);
     padding: 120px 0 72px;
     text-align: center;
     color: white;
@@ -71,7 +73,7 @@ const stats = [
               <p class="stats-val" style="font-size:2.25rem;font-weight:800;letter-spacing:-1px;color:#0c0c0c;margin:0;">{s.value}</p>
             </div>
             <p style="font-size:0.9375rem;font-weight:700;color:#0c0c0c;margin:0;">{s.label}</p>
-            <p style="font-size:0.8125rem;color:#8792a2;margin:3px 0 0;">{s.sub}</p>
+            <p style="font-size:0.8125rem;color:#667384;margin:3px 0 0;">{s.sub}</p>
           </div>
         ))}
       </div>
@@ -107,7 +109,7 @@ const stats = [
             <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:16px;display:flex;align-items:center;justify-content:space-between;" class:list={[!r.dark && 'light-divider']}>
               <div>
                 <p style={`font-size:0.9375rem;font-weight:700;margin:0;${r.dark?'color:white;':'color:#0c0c0c;'}`}>{r.name}</p>
-                <p style={`font-size:0.8125rem;margin:2px 0 0;${r.dark?'color:rgba(255,255,255,0.4);':'color:#8792a2;'}`}>{r.location} · {r.date}</p>
+                <p style={`font-size:0.8125rem;margin:2px 0 0;${r.dark?'color:rgba(255,255,255,0.5);':'color:#667384;'}`}>{r.location} · {r.date}</p>
               </div>
               <span style={`font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:32px;white-space:nowrap;${r.dark?'background:rgba(22,184,74,0.15);color:#4ade80;':'background:#dcfce7;color:#15803d;'}`}>
                 {r.service}
@@ -147,7 +149,7 @@ const stats = [
         </a>
         <a href={withBase('/contact')} style="
           display:inline-flex;align-items:center;gap:8px;
-          background-color:#0d8c32;color:white;
+          background-color:#0e7c3c;color:white;
           font-weight:700;font-size:0.9375rem;text-transform:uppercase;
           padding:12px 24px;border-radius:32px;text-decoration:none;
         ">
@@ -157,6 +159,8 @@ const stats = [
       </div>
     </div>
   </section>
+
+  </main>
 
   <Footer />
 </Layout>

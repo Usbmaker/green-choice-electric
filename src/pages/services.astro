@@ -71,10 +71,10 @@ const services = [
   {
     id: 'residential',
     badge: 'Residential',
-    badgeColor: '#16b84a',
+    badgeColor: '#0e7c3c',
     badgeBg: '#dcfce7',
     icon: 'mdi:lightning-bolt',
-    iconColor: '#16b84a',
+    iconColor: '#0e7c3c',
     iconBg: '#dcfce7',
     title: 'Residential Electrical',
     intro: "From a single outlet to a full panel upgrade, we handle the complete spectrum of residential electrical work. Every job is permitted, inspected, and done with commercial-grade materials. No shortcuts, no callbacks.",
@@ -120,9 +120,11 @@ const services = [
 <Layout title="Services" description="Lutron smart lighting, Savant smart panel, battery storage, and premium residential electrical in La Jolla and coastal San Diego.">
   <Header />
 
+  <main id="main-content" tabindex="-1">
+
   <!-- Page header -->
   <div style="
-    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    background: linear-gradient(340deg, hsl(145,80%,28%) 0%, hsl(162,82%,28%) 50%, hsl(175,85%,28%) 100%);
     padding: 120px 0 72px;
     text-align: center;
     color: white;
@@ -148,7 +150,7 @@ const services = [
   </div>
 
   <!-- Quick-jump anchor nav -->
-  <nav style="background:white;border-bottom:1px solid #e8edf0;position:sticky;top:72px;z-index:40;">
+  <nav aria-label="Service categories" style="background:white;border-bottom:1px solid #e8edf0;position:sticky;top:72px;z-index:40;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div style="display:flex;align-items:center;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none;" class="svc-nav">
         {[
@@ -201,7 +203,7 @@ const services = [
 
             <a href={withBase('/contact')} style={`
               display:inline-flex;align-items:center;gap:8px;
-              background-color:#0d8c32;color:white;
+              background-color:#0e7c3c;color:white;
               font-weight:700;font-size:0.9375rem;text-transform:uppercase;letter-spacing:0.04em;
               padding:10px 20px;border-radius:32px;text-decoration:none;
             `}>
@@ -305,7 +307,7 @@ const services = [
 
   <!-- Bottom CTA -->
   <section style="
-    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    background: linear-gradient(340deg, hsl(145,80%,28%) 0%, hsl(162,82%,28%) 50%, hsl(175,85%,28%) 100%);
     padding: 80px 0;
     text-align: center;
     color: white;
@@ -317,7 +319,7 @@ const services = [
       </p>
       <a href={withBase('/contact')} style="
         display:inline-flex;align-items:center;gap:8px;
-        background-color:#0d8c32;color:white;
+        background-color:#0e7c3c;color:white;
         font-weight:700;font-size:1rem;text-transform:uppercase;
         padding:10px 24px;border-radius:32px;text-decoration:none;
       ">
@@ -326,6 +328,8 @@ const services = [
       </a>
     </div>
   </section>
+
+  </main>
 
   <Footer />
 </Layout>

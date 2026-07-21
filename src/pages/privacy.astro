@@ -7,8 +7,10 @@ import Footer from '../components/Footer.astro';
 <Layout title="Privacy Policy">
   <Header />
 
+  <main id="main-content" tabindex="-1">
+
   <div style="
-    background: linear-gradient(340deg, hsl(145,80%,38%) 0%, hsl(162,82%,40%) 50%, hsl(175,85%,38%) 100%);
+    background: linear-gradient(340deg, hsl(145,80%,28%) 0%, hsl(162,82%,28%) 50%, hsl(175,85%,28%) 100%);
     padding: 120px 0 56px;
     text-align: center;
     color: white;
@@ -53,6 +55,8 @@ import Footer from '../components/Footer.astro';
     </div>
   </section>
 
+  </main>
+
   <Footer />
 </Layout>
 
@@ -62,7 +66,7 @@ import Footer from '../components/Footer.astro';
   .prose-block p  { font-size:0.9375rem;color:#4f606e;line-height:1.8;margin:0 0 14px; }
   .prose-block ul { padding-left:20px;margin:0 0 14px;display:flex;flex-direction:column;gap:6px; }
   .prose-block li { font-size:0.9375rem;color:#4f606e;line-height:1.7; }
-  .prose-block a  { color:#16b84a;font-weight:700;text-decoration:none; }
+  .prose-block a  { color:#0e7c3c;font-weight:700;text-decoration:none; }
   .prose-block a:hover { text-decoration:underline; }
   @media (max-width: 768px) {
     .page-header { padding: 88px 0 40px !important; }
